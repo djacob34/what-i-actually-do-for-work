@@ -84,7 +84,7 @@ export const media = {
   ],
   hy2market: {
     header: 'assets/hy2market/hy2market-header.jpg',
-    boothRender: null, // 'assets/hy2market/hy2market-booth-render.jpg'
+    boothRender: 'assets/hy2market/hy2market-booth-render.jpg',
     policyBoard: null, // 'assets/hy2market/hy2market-policy-board.png'
   },
 };

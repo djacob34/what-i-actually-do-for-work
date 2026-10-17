@@ -7,6 +7,7 @@ Put files in `public/assets/<folder>/` and set the path in `src/config/site.js`.
 - [x] NESSIE skills-pipeline graphic and Interreg/NESSIE lockup (NESSIE overview deck)
 - [x] NESSIE workshop photos: all four regional boards, Journey Logs and evaluation sheets (traineeship summaries)
 - [x] Hy2Market header image with logo (EHW overview)
+- [x] Hy2Market booth render
 - [x] InCUBE demo-site photos: Groningen, Zaragoza, Trento
 - [x] InCUBE film: “InCUBE Mid-way project update” (youtu.be/46jReRgEuqE), whole video
 - [x] Creative-direction slides (7), in Danielle's order
@@ -15,7 +16,6 @@ Put files in `public/assets/<folder>/` and set the path in `src/config/site.js`.
 ## Essential
 | # | Slide | What | File / config |
 | --- | --- | --- | --- |
-| 4 | 13 Hy2Market reveal | Preferred booth render (one variation) | `assets/hy2market/hy2market-booth-render.jpg` → `media.hy2market.boothRender` |
 | 6 | 3, 6, 9, 12 | Public participant URL | `site.participantUrl` or `VITE_PARTICIPANT_URL` |
 
 ## Everyday-work pop-ups (slide 14)

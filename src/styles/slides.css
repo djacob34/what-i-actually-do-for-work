@@ -221,22 +221,23 @@
 .hy2-header img { height: auto; }
 
 /* ── 12 Hy2Market reveal ────────────────────────────────────────────────── */
-.hy2-reveal { flex: 1; display: grid; grid-template-columns: 500px 440px; gap: 36px; min-height: 0; }
+.hy2-reveal { flex: 1; display: grid; grid-template-columns: 500px 470px; gap: 36px; min-height: 0; }
 .hr-left { position: relative; display: flex; flex-direction: column; min-height: 0; }
-.hr-render { height: 380px; flex: none; }
+.hr-render { aspect-ratio: 1685 / 934; height: auto; flex: none; border: 0; }
+.hr-render img { object-fit: cover; }
 .hr-right { display: flex; flex-direction: column; min-height: 0; }
 .hr-right .mini-head { margin: 0 0 8px; }
-.elements { list-style: none; padding: 0; margin: 0 0 18px; display: flex; flex-direction: column; gap: 10px; }
+.elements { list-style: none; padding: 0; margin: 0 0 12px; display: flex; flex-direction: column; gap: 10px; }
 .elements li { display: flex; flex-direction: column; }
 .elements strong { font-size: 21px; display: flex; align-items: center; gap: 10px; }
 .elements span { font-size: 17px; color: var(--muted); line-height: 1.28; }
 .elements .el-tag { font-size: 15px; font-weight: 700; line-height: 1.3; background: #000; color: var(--nec-yellow); padding: 1px 8px; }
-.agenda { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.agenda { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
 .agenda li { display: grid; grid-template-columns: 64px 1fr; gap: 12px; align-items: start; }
 .agenda-time { font-size: 18px; font-weight: 700; background: var(--nec-yellow); text-align: center; padding: 2px 0; font-variant-numeric: tabular-nums; }
 .agenda li div { display: flex; flex-direction: column; }
 .agenda strong { font-size: 20px; }
-.agenda li div span { font-size: 16.5px; color: var(--muted); line-height: 1.27; }
+.agenda li div span { font-size: 16px; color: var(--muted); line-height: 1.24; }
 .hr-policy { position: absolute; width: 150px; height: 110px; right: -12px; bottom: 40px; box-shadow: 0 4px 12px rgba(0,0,0,.18); }
 
 /* ── Everyday work ──────────────────────────────────────────────────────── */
