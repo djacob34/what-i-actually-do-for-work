@@ -47,6 +47,10 @@ Answers are stored only in each phone's `localStorage`. Nothing is sent anywhere
 
 `npm run build` and upload the contents of `dist/` to any static host (Netlify drop, GitHub Pages, Cloudflare Pages, Vercel, or your own server). Paths are relative, so a sub-folder works too. There's no server, database or API.
 
+### Railway
+
+The repo includes `railway.json`: Railway runs `npm run build`, then `npm start` (Vite preview on Railway's `$PORT`). Generate a domain under the service's *Settings → Networking*. The QR code picks up that public address automatically, so no participant URL setting is needed. Set `VITE_PARTICIPANT_URL` only if friends should use a different address from the one the deck is opened on.
+
 ## Editing content
 
 | What | Where |
