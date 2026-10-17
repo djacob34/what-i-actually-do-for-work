@@ -5,6 +5,8 @@ import { VideoEmbed } from '../components/VideoEmbed.jsx';
 import { activities } from '../content/activities.js';
 import { media, site } from '../config/site.js';
 import { asset } from '../lib/asset.js';
+import { useEffect, useState } from 'react';
+import { resetAnswers } from '../lib/live.js';
 
 function Title({ s }) {
   return (
@@ -22,27 +24,41 @@ function Opening({ s }) {
     <SlideFrame variant="bare" className="opening">
       <div className="opening-nec">
         <img className="opening-ring" src={asset('assets/nec/nec-ring-white.svg')} alt="" aria-hidden="true" />
-        <img className="opening-logo" src={asset('assets/nec/nec-logo-black.png')} alt="New Energy Coalition" />
         <img className="nec-plus" src={asset('assets/nec/nec-plus-grid.svg')} alt="" aria-hidden="true" />
-        <h1 className="opening-title">{s.title}</h1>
-        <p className="opening-nec-sub">{s.nec}</p>
+        <div className="opening-side">
+          <img className="opening-logo" src={asset('assets/nec/nec-logo-black.png')} alt="New Energy Coalition" />
+          <p className="opening-kicker">{s.nec.kicker}</p>
+          <h2 className="opening-heading">{s.nec.heading}</h2>
+          <p className="opening-text">{s.nec.text}</p>
+          <ul className="opening-formats">
+            {s.nec.formats.map((f) => (
+              <li key={f}>{f}</li>
+            ))}
+          </ul>
+          <p className="opening-projects">{s.nec.projects.join('  ·  ')}</p>
+        </div>
       </div>
       <div className="opening-personal" style={{ background: p.background, color: p.ink }}>
-        {p.image && <img className="opening-portrait" src={asset(p.image)} alt={p.name} />}
         {p.mascots?.pink && <img className="mascot mascot-a" src={asset(p.mascots.pink)} alt="" aria-hidden="true" />}
         {p.mascots?.green && <img className="mascot mascot-b" src={asset(p.mascots.green)} alt="" aria-hidden="true" />}
-        <div className="opening-personal-text">
-          <p className="opening-name">{p.name}</p>
-          <p className="opening-tagline">{p.tagline}</p>
+        <div className="opening-side">
+          {p.image && <img className="opening-portrait" src={asset(p.image)} alt={p.name} />}
+          <p className="opening-kicker">{s.personal.kicker}</p>
+          <h2 className="opening-heading opening-heading-serif">{s.personal.heading}</h2>
+          <p className="opening-text opening-text-serif">{p.tagline}</p>
+          <ul className="opening-formats opening-skills">
+            {s.personal.skills.map((m, i) => (
+              <li key={m} style={{ background: p.chips?.[i % p.chips.length] }}>
+                {m}
+              </li>
+            ))}
+          </ul>
         </div>
-        <ul className="opening-mix">
-          {s.mix.map((m, i) => (
-            <li key={m} style={{ background: p.chips?.[i % p.chips.length] }}>
-              {m}
-            </li>
-          ))}
-        </ul>
       </div>
+      <header className="opening-head">
+        <h1 className="opening-title">{s.title}</h1>
+        <p className="opening-name">{s.name}</p>
+      </header>
     </SlideFrame>
   );
 }
@@ -131,8 +147,88 @@ function IncubeIntro({ s, n }) {
 }
 
 // ── 5 / 8 / 11 ───────────────────────────────────────────────────────────────
-function Activity({ s, n }) {
+// Brief view while people type; press A (or the button) for the live wall of
+// answers sent from phones. Click a note to hide it from the wall.
+const NOTE_COLOURS = ['#FFF59B', '#FFCADD', '#B9B8FF', '#CEF3A7', '#FFED00'];
+const hiddenNotes = new Set();
+
+function hash(str) {
+  let h = 0;
+  for (let i = 0; i < str.length; i += 1) h = (h * 31 + str.charCodeAt(i)) | 0;
+  return Math.abs(h);
+}
+
+function Activity({ s, n, live }) {
   const a = activities[s.activity];
+  const [wall, setWall] = useState(false);
+  const [, bump] = useState(0);
+  const all = live?.answers?.[s.activity] || [];
+  const shown = all.filter((x) => !hiddenNotes.has(x.id));
+
+  useEffect(() => {
+    const onKey = (e) => {
+      const t = e.target;
+      if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
+      if ((e.key === 'a' || e.key === 'A') && !e.metaKey && !e.ctrlKey && !e.altKey) setWall((v) => !v);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
+
+  const hide = (id) => {
+    hiddenNotes.add(id);
+    bump((x) => x + 1);
+  };
+  const clear = async () => {
+    if (window.confirm(`Clear all ${a.chapter} answers from the screen and server?`)) await resetAnswers(s.activity);
+  };
+
+  if (wall) {
+    const max = 24;
+    const visible = shown.slice(-max);
+    const size = visible.length <= 4 ? 'xl' : visible.length <= 9 ? 'l' : visible.length <= 16 ? 'm' : 's';
+    return (
+      <SlideFrame number={n}>
+        <header className="slide-head wall-head">
+          <Kicker chapter={s.chapter}>{s.kicker}</Kicker>
+          <p className="wall-question">{a.fields.map((f) => f.label).join('  ·  ')}</p>
+        </header>
+        {visible.length ? (
+          <ul className={`wall wall-${size}`}>
+            {visible.map((x) => {
+              const h = hash(x.id);
+              return (
+                <li
+                  key={x.id}
+                  className="note-card"
+                  style={{ background: NOTE_COLOURS[h % NOTE_COLOURS.length], '--tilt': `${(h % 7) - 3}deg` }}
+                  onClick={() => hide(x.id)}
+                  title="Click to hide"
+                >
+                  {a.fields.map((f) =>
+                    x.fields[f.id] ? (
+                      <p key={f.id}>
+                        {f.short && <b>{f.short}: </b>}
+                        {x.fields[f.id]}
+                      </p>
+                    ) : null,
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        ) : (
+          <p className="wall-empty">{live?.connected ? 'Waiting for answers…' : 'Live answers aren’t connected (run the deck with npm start).'}</p>
+        )}
+        <div className="wall-bar">
+          {shown.length > max && <span>+{shown.length - max} more</span>}
+          <button type="button" onClick={() => setWall(false)}>Back to the brief (A)</button>
+          <button type="button" onClick={clear}>Clear</button>
+        </div>
+      </SlideFrame>
+    );
+  }
+
   return (
     <SlideFrame number={n}>
       <header className="slide-head">
@@ -153,7 +249,13 @@ function Activity({ s, n }) {
         </div>
         <div className="activity-join">
           <JoinPanel size={170} compact chapterLabel={a.chapter} />
-          <p className="activity-private">Your answer stays on your phone.</p>
+          <p className="activity-private">Answers appear on this screen, without names.</p>
+          {live?.connected && (
+            <button type="button" className="live-count" onClick={() => setWall(true)}>
+              <span className="live-dot" aria-hidden="true" />
+              {shown.length} {shown.length === 1 ? 'answer' : 'answers'} in · show (A)
+            </button>
+          )}
         </div>
       </div>
     </SlideFrame>
@@ -359,20 +461,45 @@ function Hy2Reveal({ s, n }) {
   );
 }
 
-// ── 13 ───────────────────────────────────────────────────────────────────────
-function Creative({ s, n }) {
+// ── Part dividers ────────────────────────────────────────────────────────────
+function Divider({ s, n }) {
+  const p = site.personal;
+  if (s.variant === 'personal') {
+    return (
+      <SlideFrame variant="bare" className="divider divider-personal">
+        {p.mascots?.pink && <img className="divider-mascot divider-mascot-a" src={asset(p.mascots.pink)} alt="" aria-hidden="true" />}
+        {p.mascots?.green && <img className="divider-mascot divider-mascot-b" src={asset(p.mascots.green)} alt="" aria-hidden="true" />}
+        <div className="divider-body">
+          <p className="divider-kicker">{s.kicker}</p>
+          <h1 className="divider-title">{s.title}</h1>
+          <p className="divider-sub">{s.sub}</p>
+          <ul className="divider-chips">
+            {['Brand', 'UX', 'Web design', 'Motion', 'AI', 'Leadership'].map((c, i) => (
+              <li key={c} style={{ background: p.chips?.[i % p.chips.length] }}>
+                {c}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </SlideFrame>
+    );
+  }
   return (
-    <SlideFrame number={n}>
-      <Title s={s} />
-      <ol className="loop">
-        {s.steps.map((st, i) => (
-          <li key={st}>
-            <span className="loop-n">{i + 1}</span>
-            <span>{st}</span>
-          </li>
-        ))}
-      </ol>
-      <p className="lead creative-lead">{s.lead}</p>
+    <SlideFrame variant="bare" className="divider divider-nec">
+      <img className="divider-ring" src={asset('assets/nec/nec-ring-white.svg')} alt="" aria-hidden="true" />
+      <img className="divider-logo" src={asset('assets/nec/nec-logo-black.png')} alt="New Energy Coalition" />
+      <img className="nec-plus" src={asset('assets/nec/nec-plus-grid.svg')} alt="" aria-hidden="true" />
+      <div className="divider-body">
+        <p className="divider-kicker">{s.kicker}</p>
+        <h1 className="divider-title">{s.title}</h1>
+        <p className="divider-sub">{s.sub}</p>
+        <ul className="divider-chips divider-chips-nec">
+          {['InCUBE', 'NESSIE', 'Hy2Market'].map((c) => (
+            <li key={c}>{c}</li>
+          ))}
+        </ul>
+      </div>
+      <span className="divider-num">{n}</span>
     </SlideFrame>
   );
 }
@@ -487,13 +614,13 @@ const layouts = {
   nessieReveal: NessieReveal,
   hy2Intro: Hy2Intro,
   hy2Reveal: Hy2Reveal,
-  creative: Creative,
+  divider: Divider,
   portfolio: Portfolio,
   freelance: Freelance,
   close: Close,
 };
 
-export function renderSlide(slide, number) {
+export function renderSlide(slide, number, live) {
   const C = layouts[slide.layout];
-  return C ? <C key={slide.id} s={slide} n={number} /> : null;
+  return C ? <C key={slide.id} s={slide} n={number} live={live} /> : null;
 }

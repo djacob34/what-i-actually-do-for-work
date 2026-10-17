@@ -9,13 +9,35 @@ export const slides = [
     layout: 'opening',
     title: 'What do I actually do for work?',
     name: 'Danielle Jacobson',
-    nec: 'At New Energy Coalition',
-    mix: ['Energy', 'Communication', 'Design', 'Facilitation'],
+    nec: {
+      kicker: 'At New Energy Coalition',
+      heading: 'Science communication',
+      text: 'I lead communication for three EU-funded energy projects, turning research into things people can understand, take part in and use.',
+      formats: ['Films', 'Workshops', 'Event concepts', 'Websites & stories'],
+      projects: ['InCUBE', 'NESSIE', 'Hy2Market'],
+    },
+    personal: {
+      kicker: 'As a creative director',
+      heading: 'Creative direction',
+      skills: ['Brand', 'UX', 'Web design', 'Motion'],
+    },
     notes: [
       'Welcome. The short answer to “what do you do?” never quite works, so today you get the long one, with a few things to try on your phones.',
-      'Four things meet in my work: understanding energy subject matter (BSc Environmental Engineering, MSc Energy & Environmental Science), communication, design and facilitation.',
-      'Left half: NEC visual identity. Right half: my own creative identity, taken from my creative-direction slides (portrait, Instrument Serif, pastels, mascots). Edit in src/config/site.js → personal.',
+      'Two sides of my work. Left: science communication at New Energy Coalition, where I lead communication and dissemination for three EU energy projects. Right: creative direction, which is where I come from and still do.',
+      'What connects them: understanding something complex, then shaping how people see it and take part. My background helps on the left: BSc Environmental Engineering, MSc Energy & Environmental Science.',
+      'Order today: Part 1, the three NEC projects. Part 2, my creative-direction work. Then how I work as a freelancer.',
     ],
+  },
+  // ── Part 1 ──────────────────────────────────────────────────────────────
+  {
+    id: 'part1',
+    layout: 'divider',
+    variant: 'nec',
+    section: 'Part 1 · Science communication',
+    kicker: 'Part 1',
+    title: 'Science communication at New Energy Coalition',
+    sub: 'Three EU energy projects: a film, a workshop and a booth.',
+    notes: ['Part 1 is my work at New Energy Coalition. Three projects, each with a quick task on your phone.'],
   },
   // ── 2 ───────────────────────────────────────────────────────────────────
   {
@@ -28,10 +50,10 @@ export const slides = [
       { n: '3', label: 'My real example', sub: 'What I actually did, and why' },
     ],
     joinLead: 'Open this once on your phone',
-    joinSub: 'I’ll tell you which chapter to tap. Your answers stay on your phone.',
+    joinSub: 'I’ll tell you which chapter to tap. Answers show up here, without names.',
     notes: [
       'Three projects, same rhythm each time: intro, quick task, then my real example.',
-      'Scan the code now so you’re ready. Answers are saved on your own phone only. Nothing is sent to me, so I may ask one or two of you to share yours aloud.',
+      'Scan the code now so you’re ready. When you save an answer it pops up on this screen, anonymously. Press A on an activity slide to show the wall; click a note to hide it.',
       'Working title. Rename freely in src/content/slides.js.',
     ],
   },
@@ -272,17 +294,19 @@ export const slides = [
     ],
   },
 
-  // ── 13 Creative direction transition ─────────────────────────────────────
+  // ── Part 2 ──────────────────────────────────────────────────────────────
   {
-    id: 'creative',
-    layout: 'creative',
-    title: 'The same skills in creative direction',
-    steps: ['Understand the problem', 'Set a direction', 'Brief collaborators', 'Review', 'Deliver'],
-    lead: 'Before and alongside NEC, I’ve led creative work, including building and leading a design team at BX Studio.',
+    id: 'part2',
+    layout: 'divider',
+    variant: 'personal',
+    section: 'Part 2 · Creative direction',
+    kicker: 'Part 2',
+    title: 'Creative direction',
+    sub: 'Brand, UX, web, motion, AI workflows, and leading the teams that make them.',
     notes: [
-      'Same loop as everything you’ve just seen, in a different setting.',
+      'Part 2: the other side of my work, creative direction. Different clients and different visual language, same core skill: understand the problem, set a direction, brief people, review, deliver.',
       'BX Studio was a former role: built and led a design team across strategy, UX, visual direction, review and delivery. Not my current role; no team-size or client claims without checking.',
-      'Next: eight of my creative-direction slides. Hi I’m Dani, my statement, then web, UX, brand, AI, graphic & motion, and leadership & operations. Keep it brisk: roughly 20–30 seconds each.',
+      'Next: eight of my creative-direction slides. Keep it brisk: roughly 20–30 seconds each.',
     ],
   },
   // ── Portfolio insertion happens here (see src/config/site.js → portfolio) ──
@@ -291,6 +315,7 @@ export const slides = [
   {
     id: 'freelance',
     layout: 'freelance',
+    section: 'Wrap-up',
     title: 'Freelance doesn’t mean working alone',
     centre: 'Danielle',
     nodes: [

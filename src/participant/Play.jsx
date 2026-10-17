@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { activities, chapters, isDone } from '../content/activities.js';
 import { loadAnswers, saveAnswers, clearAnswers } from '../lib/storage.js';
 import { asset } from '../lib/asset.js';
+import { sendAnswer } from '../lib/live.js';
 
 // Participant mode: a chapter menu, three short briefs and a results page.
 // Answers are saved only in this browser; nothing is sent anywhere.
@@ -30,20 +31,27 @@ export function Play() {
   const [answers, setAnswers] = useState(loadAnswers);
   const [chapter, navigate] = useRoute();
 
-  const update = (id, value) => {
+  const [sent, setSent] = useState({}); // chapter → 'sending' | 'sent' | 'offline'
+
+  const update = async (id, value) => {
     const next = { ...answers, [id]: value };
     setAnswers(next);
     saveAnswers(next);
+    setSent((m) => ({ ...m, [id]: 'sending' }));
+    const ok = await sendAnswer(id, value);
+    setSent((m) => ({ ...m, [id]: ok ? 'sent' : 'offline' }));
   };
   const reset = () => {
+    chapters.forEach((c) => answers[c] && sendAnswer(c, {}));
     clearAnswers();
     setAnswers({});
+    setSent({});
     navigate('');
   };
 
   let page;
   if (chapter === 'results') page = <Results answers={answers} navigate={navigate} onReset={reset} />;
-  else if (activities[chapter]) page = <Chapter key={chapter} id={chapter} answer={answers[chapter]} onSave={(v) => update(chapter, v)} navigate={navigate} />;
+  else if (activities[chapter]) page = <Chapter key={chapter} id={chapter} answer={answers[chapter]} status={sent[chapter]} onSave={(v) => update(chapter, v)} onRetry={() => update(chapter, answers[chapter])} navigate={navigate} />;
   else page = <Menu answers={answers} navigate={navigate} />;
 
   return (
@@ -55,7 +63,7 @@ export function Play() {
         </button>
       </header>
       <main className="play-main">{page}</main>
-      <footer className="play-foot">Your answers are saved on this phone only. Nothing is sent to anyone.</footer>
+      <footer className="play-foot">Answers show on Danielle’s screen without your name, and stay saved on this phone.</footer>
     </div>
   );
 }
@@ -96,7 +104,7 @@ function Menu({ answers, navigate }) {
   );
 }
 
-function Chapter({ id, answer, onSave, navigate }) {
+function Chapter({ id, answer, status, onSave, onRetry, navigate }) {
   const a = activities[id];
   const saved = isDone(id, answer);
   const [editing, setEditing] = useState(!saved);
@@ -151,6 +159,20 @@ function Chapter({ id, answer, onSave, navigate }) {
       ) : (
         <>
           <ResultCard id={id} answer={answer} />
+          {status && (
+            <p className={`send-status send-${status}`} role="status">
+              {status === 'sending' && 'Sending to the screen…'}
+              {status === 'sent' && '✓ On the screen'}
+              {status === 'offline' && (
+                <>
+                  Saved on your phone, but it couldn’t reach the screen.{' '}
+                  <button type="button" className="btn-link" onClick={onRetry}>
+                    Try again
+                  </button>
+                </>
+              )}
+            </p>
+          )}
           <div className="chapter-actions">
             <button type="button" className="btn-ghost" onClick={() => setEditing(true)}>
               Edit my plan
@@ -180,7 +202,7 @@ function ResultCard({ id, answer }) {
           <p className="result-quote">{answer[f.id]}</p>
         </div>
       ))}
-      <span className="result-foot">Hold it up or read it out. Danielle shows her approach next.</span>
+      <span className="result-foot">Danielle shows her approach next.</span>
     </div>
   );
 }

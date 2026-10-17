@@ -1,15 +1,16 @@
 # What do I actually do for work?
 
-Danielle Jacobson's presentation-day deck as a static React (Vite) web app: a 16:9 NEC-styled slide deck for the projector, plus a phone view for three short audience activities.
+Danielle Jacobson's presentation-day deck as a React (Vite) web app: a 16:9 slide deck for the projector, a phone view for three short audience activities, and a tiny Node server (`server.js`, no dependencies) that makes answers pop up live on the screen.
 
 ## Run it
 
 ```bash
 npm install
-npm run dev        # http://localhost:5173
 npm run build      # production build in dist/
-npm run preview    # serve dist/ at http://localhost:4173
+npm start          # deck + live answers at http://localhost:3000
 ```
+
+For editing with hot reload, run `npm run dev:server` in one terminal and `npm run dev` in another (http://localhost:5173; `/api` is proxied to the server).
 
 | URL | What it shows |
 | --- | --- |
@@ -26,6 +27,7 @@ npm run preview    # serve dist/ at http://localhost:4173
 | ← / PageUp | Previous slide |
 | Home / End | First / last slide |
 | G | Slide picker (also: click the slide counter) |
+| A | On an activity slide: toggle the live answer wall |
 | N | Speaker notes panel |
 | F | Full screen |
 | H | Hide / show the control bar |
@@ -41,15 +43,17 @@ Friends need a **public** address. Set it in one of two ways:
 
 If neither is set, a deployed copy uses its own address automatically. A local copy (localhost or LAN) shows a "Participant link not set" box instead of a QR code that wouldn't work for the audience.
 
-Answers are stored only in each phone's `localStorage`. Nothing is sent anywhere, there is no shared gallery, and the deck never shows counts or other people's answers.
+### Live answers
 
-## Deploy (static hosting)
+When someone taps "Save my plan", the answer is sent to `server.js` (no names) and also kept on their phone. On the matching activity slide a counter shows how many answers are in; press **A** (or click the counter) to show them as sticky notes. Click a note to hide it; **Clear** removes that chapter's answers. Editing an answer replaces it, and "Start over" on a phone withdraws that phone's answers.
 
-`npm run build` and upload the contents of `dist/` to any static host (Netlify drop, GitHub Pages, Cloudflare Pages, Vercel, or your own server). Paths are relative, so a sub-folder works too. There's no server, database or API.
+Answers live in the server's memory, so a restart or redeploy clears them. Set a `RESET_KEY` environment variable and open the deck with `?mode=present&key=…` if you want only yourself to be able to clear. Without the server (e.g. a plain static host) the phones still work and answers simply stay on each phone.
 
-### Railway
+## Deploy
 
-The repo includes `railway.json`: Railway runs `npm run build`, then `npm start` (Vite preview on Railway's `$PORT`). Generate a domain under the service's *Settings → Networking*. The QR code picks up that public address automatically, so no participant URL setting is needed. Set `VITE_PARTICIPANT_URL` only if friends should use a different address from the one the deck is opened on.
+### Railway (recommended: includes live answers)
+
+The repo includes `railway.json`: Railway runs `npm run build`, then `npm start` (`server.js` on Railway's `$PORT`). Generate a domain under the service's *Settings → Networking*. The QR code picks up that public address automatically, so no participant URL setting is needed. Set `VITE_PARTICIPANT_URL` only if friends should use a different address from the one the deck is opened on.
 
 ## Editing content
 
@@ -82,14 +86,19 @@ export const portfolio = [
 ];
 ```
 
-They appear straight after slide 13, with no NEC frame, so they keep their own styling.
+They appear straight after the Part 2 divider, with no NEC frame, so they keep their own styling.
+
+### Static hosting
+
+`npm run build` and upload `dist/` anywhere static. Everything works except live answers.
 
 ## Structure
 
-The base deck has 15 slides plus the portfolio insert:
-
-1. Opening (NEC + personal split) · 2. How this works + QR · 3. Where NEC fits
-4–6. InCUBE: intro · phone activity · what I actually did
-7–9. NESSIE: intro · phone activity · what I actually did
-10–12. Hy2Market: intro · phone activity · what I actually did
-13. Creative direction → portfolio slides → 14. Freelance collaboration → 15. Close
+1. Cover: title across both halves; science communication at NEC (left) and creative direction (right)
+2. **Part 1 · Science communication** divider
+3. How this works + QR · 4. Where NEC fits
+5–7. InCUBE: intro · phone activity · what I actually did
+8–10. NESSIE: intro · phone activity · what I actually did
+11–13. Hy2Market: intro · phone activity · what I actually did
+14. **Part 2 · Creative direction** divider → 15–22. eight creative-direction slides
+23. Freelance collaboration · 24. Close

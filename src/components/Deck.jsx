@@ -3,6 +3,7 @@ import { slides as baseSlides } from '../content/slides.js';
 import { portfolio } from '../config/site.js';
 import { renderSlide } from '../slides/index.jsx';
 import { activities } from '../content/activities.js';
+import { useLiveAnswers } from '../lib/live.js';
 
 const W = 1280;
 const H = 720;
@@ -47,6 +48,7 @@ export function Deck() {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [scale, setScale] = useState(1);
   const stageRef = useRef(null);
+  const live = useLiveAnswers();
 
   const go = useCallback((i) => {
     setIndex(Math.min(Math.max(i, 0), sequence.length - 1));
@@ -124,7 +126,7 @@ export function Deck() {
             aria-roledescription="slide"
             aria-label={`Slide ${index + 1} of ${sequence.length}`}
           >
-            {renderSlide(slide, index + 1)}
+            {renderSlide(slide, index + 1, live)}
           </div>
         </div>
 
@@ -170,6 +172,7 @@ export function Deck() {
             <ol>
               {sequence.map((s, i) => (
                 <li key={s.id}>
+                  {s.section && <span className="picker-section">{s.section}</span>}
                   <button
                     type="button"
                     className={i === index ? 'is-current' : ''}

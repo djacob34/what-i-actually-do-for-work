@@ -5,6 +5,6 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   base: './',
   plugins: [react()],
-  // `npm start` serves the build on hosts like Railway, which use their own domains.
-  preview: { allowedHosts: true },
+  // During `npm run dev`, forward live-answer calls to `npm run dev:server`.
+  server: { proxy: { '/api': 'http://localhost:3000' } },
 });

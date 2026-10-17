@@ -24,8 +24,8 @@ export const activities = {
     label: 'The booth brief',
     brief: 'One day on a shared stand at a busy hydrogen conference. You need to explain ten regions and get strangers talking to each other.',
     fields: [
-      { id: 'stop', label: 'How would you get people to stop?', maxLength: 250 },
-      { id: 'talk', label: 'How would you get them to talk?', maxLength: 250 },
+      { id: 'stop', label: 'How would you get people to stop?', short: 'Stop', maxLength: 250 },
+      { id: 'talk', label: 'How would you get them to talk?', short: 'Talk', maxLength: 250 },
     ],
     button: 'Save my plan',
   },
