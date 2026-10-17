@@ -15,7 +15,6 @@ Put files in `public/assets/<folder>/` and set the path in `src/config/site.js`.
 | --- | --- | --- | --- |
 | 1 | 5 InCUBE intro | Demo-site / renovation photo, landscape (before/after welcome) | `assets/incube/incube-demo-site.jpg` → `media.incube.demoImage` |
 | 2 | 7 InCUBE reveal | ~~Film link~~ (set: youtu.be/46jReRgEuqE). Still needed: title and excerpt start/end | `media.incube.film` |
-| 3 | 7 InCUBE reveal | One production-work example: script, storyboard or edit feedback | `assets/incube/incube-script-feedback.jpg` → `media.incube.workImage` |
 | 4 | 13 Hy2Market reveal | Preferred booth render (one variation) | `assets/hy2market/hy2market-booth-render.jpg` → `media.hy2market.boothRender` |
 | 6 | 3, 6, 9, 12 | Public participant URL | `site.participantUrl` or `VITE_PARTICIPANT_URL` |
 
@@ -24,6 +23,7 @@ Put files in `public/assets/<folder>/` and set the path in `src/config/site.js`.
 | --- | --- | --- | --- |
 | 8 | 13 Hy2Market reveal | Session 2 policy-board mockup (a drawn diagram shows meanwhile) | `assets/hy2market/hy2market-policy-board.png` → `media.hy2market.policyBoard` |
 | 9 | 10 NESSIE reveal | Photo of partners playing the game | `assets/nessie/nessie-workshop-in-action.jpg` → `media.nessie.facilitationPhoto` (needs a layout slot) |
+| 11 | 7 InCUBE reveal | Optional: a script page, video brief or storyboard frame (shown under the film if set) | `assets/incube/incube-script-feedback.jpg` → `media.incube.workImage` |
 | 10 | 23 Freelance | Portraits of Danielle, Ihor, Rich, Bella | not wired; the text diagram works without them |
 
 ## Facts to confirm (kept in speaker notes)

@@ -271,32 +271,20 @@ function IncubeReveal({ s, n }) {
       <div className="incube-reveal">
         <div className="ir-left">
           <VideoEmbed film={m.film} />
-          <div className="films">
-            <span className="films-lead">{s.filmsLead}</span>
-            <ol>
-              {s.films.map((f) => (
-                <li key={f.name}>
-                  <strong>{f.name}</strong>
-                  <span>{f.sub}</span>
-                </li>
-              ))}
-            </ol>
-          </div>
+          <p className="callout ir-note">{s.processNote}</p>
+          {m.workImage && (
+            <Figure className="ir-work frame" src={m.workImage} alt="Production material: script or video brief" caption={m.workCaption} />
+          )}
         </div>
         <div className="ir-right">
-          <h2 className="mini-head">My approach</h2>
-          <ul className="ticks">
-            {s.role.map((r) => (
-              <li key={r}>{r}</li>
+          <h2 className="mini-head">{s.processLead}</h2>
+          <ol className="process">
+            {s.process.map((p) => (
+              <li key={p.step}>
+                {p.step}
+              </li>
             ))}
-          </ul>
-          <Figure
-            className="ir-work frame"
-            src={m.workImage}
-            alt="Production material: script or edit feedback"
-            caption={m.workCaption}
-            placeholder={{ title: 'Script or edit-feedback example', file: 'assets/incube/incube-script-feedback.jpg' }}
-          />
+          </ol>
         </div>
       </div>
     </SlideFrame>
