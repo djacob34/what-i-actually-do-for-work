@@ -70,11 +70,11 @@ export const media = {
   // type: web (browser frame), video (16:9 frame), social (post card), doc (portrait page) or banner (roll-up).
   // slot: [left, top, width, tilt in degrees] on the 1280 × 720 slide.
   everyday: [
-    { type: 'web', label: 'Hy2Market case studies', src: null, slot: [40, 34, 390, -3] }, // 'assets/everyday/web-case-studies.jpg'
+    { type: 'web', label: 'Hy2Market case studies', src: 'assets/everyday/web-case-studies.jpg', slot: [40, 34, 390, -3] },
     { type: 'social', label: 'Hy2Market on LinkedIn', src: 'assets/everyday/li-hy2market.jpg', slot: [450, 30, 320, 2] },
     { type: 'web', label: 'incubeproject.eu', src: 'assets/everyday/web-incube.jpg', slot: [760, 40, 420, 3] },
     { type: 'doc', label: 'NESSIE traineeship summary', src: 'assets/everyday/report-nessie-traineeship.jpg', slot: [1030, 270, 220, -4] },
-    { type: 'web', label: 'NESSIE on interregnorthsea.eu', src: 'assets/everyday/web-nessie.jpg', slot: [110, 150, 350, 2] },
+    { type: 'web', label: 'NESSIE on interregnorthsea.eu', src: 'assets/everyday/web-nessie.jpg', slot: [175, 255, 300, 2] },
     { type: 'doc', label: 'Hy2Market newsletter', src: 'assets/everyday/news-hy2market.jpg', slot: [470, 280, 200, -2] },
     { type: 'social', label: 'InCUBE on LinkedIn', src: 'assets/everyday/li-incube.jpg', slot: [190, 440, 300, -3] },
     { type: 'video', label: 'InCUBE × ReLIFE webinar', src: 'assets/everyday/webinar-incube-relife.jpg', slot: [700, 250, 300, -1] },
