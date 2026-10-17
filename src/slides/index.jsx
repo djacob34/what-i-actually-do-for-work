@@ -135,21 +135,17 @@ function Activity({ s, n }) {
         <Kicker chapter={s.chapter}>{s.kicker}</Kicker>
         <p className="activity-tag">On your phone · {s.timing}</p>
       </header>
-      <div className={`activity activity-${a.kind}`}>
+      <div className="activity">
         <div className="activity-main">
-          <h1 className="activity-prompt">{a.prompt}</h1>
-          {a.kind === 'choice' ? (
-            <ol className="activity-options">
-              {a.options.map((o, i) => (
-                <li key={o.id}>
-                  <span className="opt-letter">{o.letter || String.fromCharCode(65 + i)}</span>
-                  {o.label}
-                </li>
-              ))}
-            </ol>
-          ) : (
-            <p className="activity-textnote">Type one or two ideas, then tap “{a.button}”.</p>
-          )}
+          <div className="activity-brief">
+            <span className="activity-brief-label">The brief I got</span>
+            <p>{a.brief}</p>
+          </div>
+          <ul className="activity-questions">
+            {a.fields.map((f) => (
+              <li key={f.id}>{f.label}</li>
+            ))}
+          </ul>
         </div>
         <div className="activity-join">
           <JoinPanel size={170} compact chapterLabel={a.chapter} />
@@ -182,7 +178,7 @@ function IncubeReveal({ s, n }) {
           </div>
         </div>
         <div className="ir-right">
-          <h2 className="mini-head">My part</h2>
+          <h2 className="mini-head">My approach</h2>
           <ul className="ticks">
             {s.role.map((r) => (
               <li key={r}>{r}</li>
@@ -327,6 +323,7 @@ function Hy2Reveal({ s, n }) {
           <ol className="elements">
             {s.elements.map((e) => (
               <li key={e.name}>
+                <span className={`el-tag el-tag-${e.tag.toLowerCase().replace(/\s+/g, '-')}`}>{e.tag}</span>
                 <strong>{e.name}</strong>
                 <span>{e.why}</span>
               </li>

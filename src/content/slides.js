@@ -24,7 +24,7 @@ export const slides = [
     title: 'A day in the life of Danielle',
     steps: [
       { n: '1', label: 'Project introduction', sub: 'What it is, in plain language' },
-      { n: '2', label: 'A quick task on your phone', sub: 'Under a minute, no wrong answers' },
+      { n: '2', label: 'The brief I got, on your phone', sub: 'How would you approach it? No wrong answers' },
       { n: '3', label: 'My real example', sub: 'What I actually did, and why' },
     ],
     joinLead: 'Open this once on your phone',
@@ -88,11 +88,11 @@ export const slides = [
     chapter: 'incube',
     activity: 'incube',
     kicker: 'InCUBE · 2 of 3',
-    timing: 'About 20 seconds',
+    timing: 'About 30 seconds',
     notes: [
-      'Phones out: tap InCUBE. Pick one angle and tap “Show my angle”.',
-      'All three are legitimate editorial approaches; none is ranked.',
-      'Ask one or two people which they picked and why, then move on to the film.',
+      'Phones out: tap InCUBE. Read the brief, type your first step, tap “Save my plan”.',
+      'Ask two or three people what they wrote. Expect “start filming” or “write a script”.',
+      'Then the reveal: before any filming, I write the brief (purpose, audience, message). Everything else follows from it.',
     ],
   },
   // ── 6 InCUBE reveal ───────────────────────────────────────────────────────
@@ -115,7 +115,7 @@ export const slides = [
       'Brief and review the edit with Rich, my video editor',
     ],
     notes: [
-      'Play 60–90 seconds of the film (start/end set in src/config/site.js → media.incube.film).',
+      'Answer to the phone question first: my first step is the written brief (purpose, audience, message). Then play 60–90 seconds of the film (start/end in src/config/site.js → media.incube.film).',
       'Three distinct film themes: an introduction to InCUBE, a technologies film, and one about international European collaboration. Deliberately different jobs; not all three are necessarily published. [Confirm which are published.]',
       'Kinds of decisions in development: script wording, terminology and timing; aligning voiceover with animation; maps linking the demo sites; Zaragoza drone/demo-site footage; checklist overlays; ending on project branding. [Check these against the film shown.]',
       'Collaboration-film concept: General Assembly footage, partner interviews, maps and grouped partner logos. These are proposed treatments, not a description of a final edit.',
@@ -154,11 +154,11 @@ export const slides = [
     chapter: 'nessie',
     activity: 'nessie',
     kicker: 'NESSIE · 2 of 3',
-    timing: 'About 20 seconds',
+    timing: 'About 45 seconds',
     notes: [
-      'Phones: tap NESSIE. One choice, then “Show my approach”.',
-      'Each option produces a different kind of output: a comparison, a worked pathway, or consistent documentation. All can help.',
-      'Quick show of hands, then the reveal.',
+      'Phones: tap NESSIE. Same brief I had for the General Assembly: 75 minutes, 24 partners, four regions, no concrete plans yet.',
+      'Ask two people how they’d use the time. Any approach is fair; the comparison with mine is the point.',
+      'Then the reveal: I turned it into a game, so planning became a series of small decisions.',
     ],
   },
   // ── 9 NESSIE reveal ───────────────────────────────────────────────────────
@@ -168,7 +168,7 @@ export const slides = [
     chapter: 'nessie',
     kicker: 'NESSIE · 3 of 3',
     title: 'What I actually did',
-    sub: 'A traineeship-building game I designed and ran at the General Assembly in Morbihan',
+    sub: 'My answer: a traineeship-building game for the General Assembly in Morbihan',
     steps: [
       { min: '5', label: 'Meet your trainee, pick a host' },
       { min: '35', label: 'Build a journey: 3–4 stops' },
@@ -185,7 +185,7 @@ export const slides = [
     ],
     status: 'Workshop designs, not delivered placements',
     notes: [
-      'The phone choice was a taster. Here’s what I designed: “Journey Through the E-Campus”, a 75-minute physical group game at the NESSIE General Assembly (Quiberon, Morbihan, May 2026). One of three 75-minute workshops I designed and facilitated there, each with four groups and 24 participants.',
+      'Compare with what you wrote on your phone. Here’s what I designed: “Journey Through the E-Campus”, a 75-minute physical group game at the NESSIE General Assembly (Quiberon, Morbihan, May 2026). One of three 75-minute workshops I designed and facilitated there, each with four groups and 24 participants.',
       'Afterwards I wrote a summary per region from the boards, worksheets and voice notes, as input to traineeship reporting (T3.4).',
       'Materials: an A2 board per region; trainee-profile, location, organisation and activity cards; a Journey Log and an evaluation sheet. Teams physically placed cards on the board.',
       'A profile came with needs and constraints. Each stop linked a location, organisation, activity, duration and skill. Teams then decided how learning is assessed, by whom, and what counts as completion. The Journey Log fed further traineeship work (T3.4).',
@@ -233,10 +233,10 @@ export const slides = [
     chapter: 'hy2market',
     activity: 'hy2market',
     kicker: 'Hy2Market · 2 of 3',
-    timing: 'About 30–45 seconds',
+    timing: 'About 45 seconds',
     notes: [
-      'Phones: tap Hy2Market. Type one or two ideas and tap “Save my ideas”.',
-      'Then ask two people to read theirs out. Remember them and link back on the next slide only where they actually match.',
+      'Phones: tap Hy2Market. Two prompts: how to get people to stop, and how to get them to talk.',
+      'Ask two people to read theirs out. Remember them and link back on the next slide only where they actually match.',
       'Don’t hint at the map, spotlights or networking board yet.',
     ],
   },
@@ -249,9 +249,9 @@ export const slides = [
     title: 'What I actually did',
     status: 'Concept in development',
     elements: [
-      { name: 'Europe map + six panels', why: 'The big picture first, then five regional spotlights and a project intro to start conversations' },
-      { name: 'Networking board', why: 'Visitors pin what they’re looking for and what they offer, so the right people find each other' },
-      { name: 'Agenda banners + flyers', why: 'What’s on next, and something to take away' },
+      { tag: 'Stop', name: 'Europe map + six panels', why: 'The big picture first, then five regional spotlights and a project intro to start conversations' },
+      { tag: 'Talk', name: 'Networking board', why: 'Visitors pin what they’re looking for and what they offer, so the right people find each other' },
+      { tag: 'Take away', name: 'Agenda banners + flyers', why: 'What’s on next, and something to take away' },
     ],
     policy: {
       label: 'Separate: Session 2 policy board',
@@ -260,7 +260,7 @@ export const slides = [
       how: 'Sticky-note feedback on each policy recommendation',
     },
     notes: [
-      'Connect to what friends said on the last slide only where it genuinely matches.',
+      'Same split as the phone prompts: what makes people stop, what gets them talking, and what they take away. Connect to what friends said only where it genuinely matches.',
       'Back wall: a Europe map of the ten Hy2Market regions, colour-coded by role, with six panels: five regional spotlights (Upper Austria, Northern Netherlands, Sicily, Asturias, Médio Tejo) plus a project introduction with a QR code to hy2market.eu. Each spotlight: what was done, what was learned, three key figures, partner logos.',
       'Layout variations tested: three frames each side; a smaller landscape map with spotlights around it; a larger central map with three above and three below. Not all of them are final instructions. I wanted more breathing room between the map and the networking board.',
       'Networking board (left of the map): categories such as project development, research and innovation, and industry. Visitors attach a card with what they offer, what they’re looking for, and contact details. Photos of it are allowed. There is no matching system and no counts.',

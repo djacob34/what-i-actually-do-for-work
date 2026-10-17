@@ -1,77 +1,37 @@
-// The three phone activities. Shared by the projected activity slides and by
-// participant mode, so wording only needs to change here.
+// The three phone activities: "You get the brief I got". Each shows the brief
+// Danielle was given and asks how the participant would approach it. Shared by
+// the projected activity slides and participant mode, so wording lives here.
 
 export const chapters = ['incube', 'nessie', 'hy2market'];
 
 export const activities = {
   incube: {
-    kind: 'choice',
     chapter: 'InCUBE',
-    label: 'Choose the story',
-    intro: 'Building renovation in Groningen, Zaragoza and Trento.',
-    prompt: 'You’re making a short video about a building renovation. What would you put at the centre of the story?',
-    button: 'Show my angle',
-    resultHeading: 'Your angle',
-    resultLead: 'One thing to keep in mind',
-    options: [
-      {
-        id: 'people',
-        label: 'People’s everyday experience',
-        result: 'Connect the experience to what changed in the building.',
-      },
-      {
-        id: 'technology',
-        label: 'Technology and process',
-        result: 'Explain why the technical detail matters, in language anyone can follow.',
-      },
-      {
-        id: 'transformation',
-        label: 'Transformation, before and after',
-        result: 'Explain what caused the change, beyond how it looks.',
-      },
-    ],
-    footnote: 'There’s no right answer. Each is a real editorial choice.',
+    label: 'The film brief',
+    brief: 'Make a short film about a renovation project happening in three countries, for people who’ve never heard of it.',
+    fields: [{ id: 'first', label: 'What’s the first thing you’d do?', maxLength: 300 }],
+    button: 'Save my plan',
   },
   nessie: {
-    kind: 'choice',
     chapter: 'NESSIE',
-    label: 'Structure the session',
-    intro: 'Training people for energy-transition jobs.',
-    prompt: 'Partners must deliver traineeships, but their programmes aren’t concrete yet. How would you structure the next partner session?',
-    button: 'Show my approach',
-    resultHeading: 'Your approach',
-    resultLead: 'What it gives you',
-    options: [
-      {
-        id: 'present',
-        letter: 'A',
-        label: 'Each region presents its current plans',
-        result: 'A comparison of current plans: everyone sees where each region stands today.',
-      },
-      {
-        id: 'journey',
-        letter: 'B',
-        label: 'Each region builds a trainee journey with hosts, activities and assessment',
-        result: 'A worked learner pathway: one concrete example of who goes where, does what, and how it’s assessed.',
-      },
-      {
-        id: 'template',
-        letter: 'C',
-        label: 'Everyone completes a shared programme template',
-        result: 'Consistent documentation: every region describes its programme in the same format.',
-      },
-    ],
-    footnote: 'Several approaches can help.',
+    label: 'The workshop brief',
+    brief: 'You have 75 minutes with 24 partners from four regions. They must deliver traineeships, but nobody has a concrete plan yet. They need to leave with one.',
+    fields: [{ id: 'plan', label: 'How would you use those 75 minutes?', maxLength: 400 }],
+    button: 'Save my plan',
   },
   hy2market: {
-    kind: 'text',
     chapter: 'Hy2Market',
-    label: 'An open question',
-    intro: 'Getting a hydrogen project noticed at a busy conference.',
-    prompt: 'What makes a conference booth good at communicating a project and getting people to interact?',
-    fieldLabel: 'One or two ideas',
-    maxLength: 300,
-    button: 'Save my ideas',
-    resultHeading: 'Your ideas',
+    label: 'The booth brief',
+    brief: 'One day on a shared stand at a busy hydrogen conference. You need to explain ten regions and get strangers talking to each other.',
+    fields: [
+      { id: 'stop', label: 'How would you get people to stop?', maxLength: 250 },
+      { id: 'talk', label: 'How would you get them to talk?', maxLength: 250 },
+    ],
+    button: 'Save my plan',
   },
 };
+
+// An answer counts as done when at least one field has text.
+export function isDone(id, answer) {
+  return Boolean(answer && activities[id].fields.some((f) => answer[f.id]?.trim()));
+}

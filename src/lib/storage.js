@@ -1,5 +1,5 @@
 // Participant answers live only in this browser's localStorage.
-const KEY = 'wdiad-answers-v1';
+const KEY = 'wdiad-answers-v2';
 
 export function loadAnswers() {
   try {

@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
-import { activities, chapters } from '../content/activities.js';
+import { activities, chapters, isDone } from '../content/activities.js';
 import { loadAnswers, saveAnswers, clearAnswers } from '../lib/storage.js';
 import { asset } from '../lib/asset.js';
 
-// Participant mode: a chapter menu, three short activities and a results page.
+// Participant mode: a chapter menu, three short briefs and a results page.
 // Answers are saved only in this browser; nothing is sent anywhere.
 
 function useRoute() {
@@ -60,11 +60,6 @@ export function Play() {
   );
 }
 
-function isDone(id, answer) {
-  if (!answer) return false;
-  return activities[id].kind === 'text' ? Boolean(answer.text?.trim()) : Boolean(answer.choice);
-}
-
 function Menu({ answers, navigate }) {
   return (
     <section className="play-menu">
@@ -91,7 +86,7 @@ function Menu({ answers, navigate }) {
             <span className="menu-num">★</span>
             <span className="menu-text">
               <strong>My results</strong>
-              <span>All three answers together</span>
+              <span>All three plans together</span>
             </span>
             <span className="menu-state">View</span>
           </button>
@@ -105,50 +100,46 @@ function Chapter({ id, answer, onSave, navigate }) {
   const a = activities[id];
   const saved = isDone(id, answer);
   const [editing, setEditing] = useState(!saved);
-  const [choice, setChoice] = useState(answer?.choice || '');
-  const [text, setText] = useState(answer?.text || '');
+  const [values, setValues] = useState(() => Object.fromEntries(a.fields.map((f) => [f.id, answer?.[f.id] || ''])));
+  const canSave = a.fields.some((f) => values[f.id].trim());
 
   const submit = (e) => {
     e.preventDefault();
-    if (a.kind === 'choice' ? !choice : !text.trim()) return;
-    onSave(a.kind === 'choice' ? { choice } : { text: text.trim() });
+    if (!canSave) return;
+    onSave(Object.fromEntries(a.fields.map((f) => [f.id, values[f.id].trim()])));
     setEditing(false);
   };
 
-  const idx = chapters.indexOf(id);
-  const nextId = chapters[idx + 1];
+  const nextId = chapters[chapters.indexOf(id) + 1];
 
   return (
     <section className={`chapter chapter-${id}`}>
       <p className="chapter-kicker">
         {a.chapter} · {a.label}
       </p>
-      <p className="chapter-intro">{a.intro}</p>
-      <h1 className="chapter-prompt">{a.prompt}</h1>
+      <div className="brief">
+        <span className="brief-label">The brief</span>
+        <p>{a.brief}</p>
+      </div>
 
       {editing ? (
         <form onSubmit={submit} className="chapter-form">
-          {a.kind === 'choice' ? (
-            <fieldset>
-              <legend className="sr-only">{a.prompt}</legend>
-              {a.options.map((o, i) => (
-                <label key={o.id} className={`option ${choice === o.id ? 'is-selected' : ''}`}>
-                  <input type="radio" name={id} value={o.id} checked={choice === o.id} onChange={() => setChoice(o.id)} />
-                  <span className="option-letter">{o.letter || String.fromCharCode(65 + i)}</span>
-                  <span>{o.label}</span>
-                </label>
-              ))}
-            </fieldset>
-          ) : (
-            <div className="text-field">
-              <label htmlFor={`${id}-text`}>{a.fieldLabel}</label>
-              <textarea id={`${id}-text`} rows={4} maxLength={a.maxLength} value={text} onChange={(e) => setText(e.target.value)} />
+          {a.fields.map((f) => (
+            <div className="text-field" key={f.id}>
+              <label htmlFor={`${id}-${f.id}`}>{f.label}</label>
+              <textarea
+                id={`${id}-${f.id}`}
+                rows={a.fields.length > 1 ? 3 : 5}
+                maxLength={f.maxLength}
+                value={values[f.id]}
+                onChange={(e) => setValues((v) => ({ ...v, [f.id]: e.target.value }))}
+              />
               <span className="count" aria-live="polite">
-                {text.length}/{a.maxLength}
+                {values[f.id].length}/{f.maxLength}
               </span>
             </div>
-          )}
-          <button type="submit" className="btn-primary" disabled={a.kind === 'choice' ? !choice : !text.trim()}>
+          ))}
+          <button type="submit" className="btn-primary" disabled={!canSave}>
             {a.button}
           </button>
           {saved && (
@@ -162,7 +153,7 @@ function Chapter({ id, answer, onSave, navigate }) {
           <ResultCard id={id} answer={answer} />
           <div className="chapter-actions">
             <button type="button" className="btn-ghost" onClick={() => setEditing(true)}>
-              {a.kind === 'choice' ? 'Change my answer' : 'Edit my ideas'}
+              Edit my plan
             </button>
             <button type="button" className="btn-primary" onClick={() => navigate(nextId || 'results')}>
               {nextId ? `Next: ${activities[nextId].chapter}` : 'See my results'}
@@ -179,24 +170,17 @@ function Chapter({ id, answer, onSave, navigate }) {
 
 function ResultCard({ id, answer }) {
   const a = activities[id];
-  if (a.kind === 'text') {
-    return (
-      <div className={`result result-${id}`}>
-        <span className="result-head">{a.resultHeading}</span>
-        <p className="result-quote">{answer.text}</p>
-        <span className="result-foot">Danielle may ask you to share this aloud.</span>
-      </div>
-    );
-  }
-  const opt = a.options.find((o) => o.id === answer.choice);
-  if (!opt) return null;
+  const filled = a.fields.filter((f) => answer[f.id]?.trim());
   return (
     <div className={`result result-${id}`}>
-      <span className="result-head">{a.resultHeading}</span>
-      <p className="result-choice">{opt.label}</p>
-      <span className="result-lead">{a.resultLead}</span>
-      <p className="result-text">{opt.result}</p>
-      {a.footnote && <span className="result-foot">{a.footnote}</span>}
+      <span className="result-head">My plan · {a.chapter}</span>
+      {filled.map((f) => (
+        <div key={f.id} className="result-item">
+          {a.fields.length > 1 && <span className="result-lead">{f.label}</span>}
+          <p className="result-quote">{answer[f.id]}</p>
+        </div>
+      ))}
+      <span className="result-foot">Hold it up or read it out. Danielle shows her approach next.</span>
     </div>
   );
 }
