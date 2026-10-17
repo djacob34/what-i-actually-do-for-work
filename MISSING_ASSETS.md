@@ -18,6 +18,19 @@ Put files in `public/assets/<folder>/` and set the path in `src/config/site.js`.
 | 4 | 13 Hy2Market reveal | Preferred booth render (one variation) | `assets/hy2market/hy2market-booth-render.jpg` → `media.hy2market.boothRender` |
 | 6 | 3, 6, 9, 12 | Public participant URL | `site.participantUrl` or `VITE_PARTICIPANT_URL` |
 
+## Everyday-work pop-ups (slide 14)
+Screenshots or exports in `public/assets/everyday/`, then set each `src` in `media.everyday` (`src/config/site.js`). Any size; websites landscape, LinkedIn posts portrait, documents as a page image.
+- [ ] `web-hy2market.jpg`: hy2market.eu home or a news story
+- [ ] `web-case-studies.jpg`: the Hy2Market case-studies site
+- [ ] `web-incube.jpg`: incubeproject.eu
+- [ ] `web-nessie.jpg`: NESSIE on interregnorthsea.eu
+- [ ] `li-hy2market.jpg`, `li-incube.jpg`, `li-nessie.jpg`: one LinkedIn post or page per project
+- [ ] `news-hy2market.jpg`, `news-incube.jpg`: a newsletter issue each
+- [ ] `webinar-incube-relife.jpg`: webinar promo or a frame from the recording
+- [ ] `flyer-ehw.jpg`: Hydrogen Week flyer or programme
+- [ ] `banner.jpg`: a roll-up banner
+- [x] `report-nessie-traineeship.jpg`: page 1 of the Morbihan traineeship summary
+
 ## Optional
 | # | Slide | What | File / config |
 | --- | --- | --- | --- |

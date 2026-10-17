@@ -50,9 +50,23 @@ export function Deck() {
   const stageRef = useRef(null);
   const live = useLiveAnswers();
 
-  const go = useCallback((i) => {
-    setIndex(Math.min(Math.max(i, 0), sequence.length - 1));
+  const [step, setStep] = useState(0);
+
+  const go = useCallback((i, atEnd = false) => {
+    const next = Math.min(Math.max(i, 0), sequence.length - 1);
+    setIndex(next);
+    setStep(atEnd ? sequence[next].steps || 0 : 0);
   }, []);
+
+  // Slides with `steps` reveal extra builds before the next slide.
+  const forward = useCallback(() => {
+    if (step < (sequence[index].steps || 0)) setStep(step + 1);
+    else go(index + 1);
+  }, [index, step, go]);
+  const back = useCallback(() => {
+    if (step > 0) setStep(step - 1);
+    else go(index - 1, true);
+  }, [index, step, go]);
 
   useEffect(() => {
     const target = `#${index + 1}`;
@@ -61,7 +75,10 @@ export function Deck() {
   }, [index]);
 
   useEffect(() => {
-    const onHash = () => setIndex(readHash());
+    const onHash = () => {
+      setIndex(readHash());
+      setStep(0);
+    };
     window.addEventListener('hashchange', onHash);
     return () => window.removeEventListener('hashchange', onHash);
   }, []);
@@ -83,10 +100,10 @@ export function Deck() {
       const k = e.key;
       if (k === 'ArrowRight' || k === 'PageDown' || (k === ' ' && !e.target.closest?.('button,a'))) {
         e.preventDefault();
-        go(index + 1);
+        forward();
       } else if (k === 'ArrowLeft' || k === 'PageUp') {
         e.preventDefault();
-        go(index - 1);
+        back();
       } else if (k === 'Home') go(0);
       else if (k === 'End') go(sequence.length - 1);
       else if (k === 'f' || k === 'F') toggleFullscreen();
@@ -97,7 +114,7 @@ export function Deck() {
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [index, go, toggleFullscreen]);
+  }, [index, go, forward, back, toggleFullscreen]);
 
   // Fit the fixed 16:9 canvas into whatever space the stage has.
   useLayoutEffect(() => {
@@ -126,13 +143,13 @@ export function Deck() {
             aria-roledescription="slide"
             aria-label={`Slide ${index + 1} of ${sequence.length}`}
           >
-            {renderSlide(slide, index + 1, live)}
+            {renderSlide(slide, index + 1, live, step)}
           </div>
         </div>
 
         {!chromeHidden && (
           <nav className="controls" aria-label="Presentation controls">
-            <button type="button" onClick={() => go(index - 1)} disabled={index === 0} aria-label="Previous slide">
+            <button type="button" onClick={back} disabled={index === 0 && step === 0} aria-label="Previous slide">
               ←
             </button>
             <button
@@ -145,7 +162,7 @@ export function Deck() {
             >
               {index + 1} / {sequence.length}
             </button>
-            <button type="button" onClick={() => go(index + 1)} disabled={index === sequence.length - 1} aria-label="Next slide">
+            <button type="button" onClick={forward} disabled={index === sequence.length - 1 && step >= (slide.steps || 0)} aria-label="Next slide">
               →
             </button>
             <span className="controls-sep" />

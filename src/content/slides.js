@@ -298,21 +298,24 @@ export const slides = [
   {
     id: 'everyday',
     layout: 'everyday',
+    steps: 1, // next arrow first pops up the examples
     kicker: 'Across all three projects',
     title: 'And the everyday work',
     items: [
       { name: 'Websites', what: 'News stories and an interactive case-studies site for Hy2Market, plus the InCUBE and NESSIE project pages' },
       { name: 'Social media', what: 'LinkedIn for all three projects. I publish every post; my assistant drafts copy and graphics' },
       { name: 'Newsletters', what: 'Hy2Market every quarter, InCUBE three times a year' },
+      { name: 'Webinars', what: 'Organised and run online, like the InCUBE × ReLIFE session on renovation data' },
       { name: 'Flyers and print', what: 'Stand programmes, flyers, roll-up banners and exhibition displays' },
       { name: 'Reports', what: 'Communication results for the EU, dissemination reports, workshop summaries and the NESSIE replication plan' },
     ],
     principle: 'Nothing goes public without my review.',
     notes: [
-      'The three cases are the big pieces. This is what fills most weeks.',
+      'The three cases are the big pieces. This is what fills most weeks. Press → once to pop up the examples, again to move on.',
       'Websites: hy2market.eu news (e.g. “Crossing Canal and Rail”, “Teaching a Coal Power Plant to Burn Hydrogen”) and the interactive case-studies site, five regions live; incubeproject.eu in WordPress; NESSIE on the Interreg site.',
       'Social: the LinkedIn pages for NESSIE, Hy2Market and InCUBE. Partner spotlight video series “My ‘I’ in I3” for Hy2Market.',
       'Newsletters via LaPosta.',
+      'Webinars on WebinarGeek, e.g. InCUBE × ReLIFE “Renovation Data in Action” (30 Sept 2026) with the Zaragoza demo as the case study, and the captioned R-Guide / Resilience Dashboard recording.',
       'Print: e.g. the EU Hydrogen Week programme and flyers, the joint FREIIA–NESSIE banner at EUSEW 2026, and the InCUBE lift-the-flap demo-site map display.',
       'Reports: monthly KPI tracking against each grant agreement, the InCUBE dissemination report (D9.12), the four NESSIE traineeship summaries, and the WP4 replication plan.',
       'Principles: factual rather than promotional; partners get a draft to correct rather than a blank request.',

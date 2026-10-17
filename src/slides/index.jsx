@@ -445,7 +445,41 @@ function Hy2Reveal({ s, n }) {
 }
 
 // ── Everyday work ────────────────────────────────────────────────────────────
-function Everyday({ s, n }) {
+// On the build step, examples pop up one by one and fill the screen.
+// Slots: [left, top, width, tilt] on the 1280 × 720 canvas, in pop order.
+const POP_SLOTS = [
+  [40, 34, 390, -3], [460, 18, 250, 2], [760, 40, 420, 3], [1030, 270, 220, -4],
+  [70, 300, 380, 2], [470, 280, 200, -2], [690, 300, 270, -3], [250, 440, 190, 4],
+  [470, 470, 400, -2], [900, 430, 260, 3], [1070, 14, 190, 5], [24, 470, 200, -5],
+  [560, 160, 330, 1],
+];
+
+function PopItem({ item, slot, i }) {
+  const [x, y, w, tilt] = slot;
+  const url = asset(item.src);
+  return (
+    <figure
+      className={`pop pop-${item.type}`}
+      style={{ left: x, top: y, width: w, '--tilt': `${tilt}deg`, '--d': `${i * 170}ms` }}
+    >
+      {item.type === 'web' && (
+        <div className="pop-bar" aria-hidden="true">
+          <i />
+          <i />
+          <i />
+          <span>{item.label}</span>
+        </div>
+      )}
+      <div className="pop-body">
+        {url ? <img src={url} alt={item.label} /> : <span className="pop-missing">{item.label}</span>}
+      </div>
+      {item.type !== 'web' && <figcaption>{item.label}</figcaption>}
+    </figure>
+  );
+}
+
+function Everyday({ s, n, step }) {
+  const examples = media.everyday || [];
   return (
     <SlideFrame number={n}>
       <Title s={s} />
@@ -458,6 +492,13 @@ function Everyday({ s, n }) {
         ))}
       </dl>
       <p className="callout everyday-principle">{s.principle}</p>
+      {step > 0 && (
+        <div className="pops" aria-label="Examples of the everyday work">
+          {examples.slice(0, POP_SLOTS.length).map((item, i) => (
+            <PopItem key={item.label} item={item} slot={POP_SLOTS[i]} i={i} />
+          ))}
+        </div>
+      )}
     </SlideFrame>
   );
 }
@@ -622,7 +663,7 @@ const layouts = {
   close: Close,
 };
 
-export function renderSlide(slide, number, live) {
+export function renderSlide(slide, number, live, step = 0) {
   const C = layouts[slide.layout];
-  return C ? <C key={slide.id} s={slide} n={number} live={live} /> : null;
+  return C ? <C key={slide.id} s={slide} n={number} live={live} step={step} /> : null;
 }
