@@ -39,9 +39,9 @@ export const media = {
   incube: {
     // InCUBE intro: one photo per demo site (landscape works best).
     sites: {
-      groningen: null, // 'assets/incube/site-groningen.jpg'
-      zaragoza: null, // 'assets/incube/site-zaragoza.jpg'
-      trento: null, // 'assets/incube/site-trento.jpg'
+      groningen: 'assets/incube/site-groningen.jpg',
+      zaragoza: 'assets/incube/site-zaragoza.jpg',
+      trento: 'assets/incube/site-trento.jpg',
     },
     // Slide 6: the selected film. Use EITHER a YouTube id OR a local file.
     film: {
