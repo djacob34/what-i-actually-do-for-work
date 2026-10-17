@@ -462,7 +462,7 @@ function PopItem({ item, slot, i }) {
       className={`pop pop-${item.type}`}
       style={{ left: x, top: y, width: w, '--tilt': `${tilt}deg`, '--d': `${i * 170}ms` }}
     >
-      {item.type === 'web' && (
+      {(item.type === 'web' || item.type === 'video') && (
         <div className="pop-bar" aria-hidden="true">
           <i />
           <i />
@@ -473,7 +473,7 @@ function PopItem({ item, slot, i }) {
       <div className="pop-body">
         {url ? <img src={url} alt={item.label} /> : <span className="pop-missing">{item.label}</span>}
       </div>
-      {item.type !== 'web' && <figcaption>{item.label}</figcaption>}
+      {item.type !== 'web' && item.type !== 'video' && <figcaption>{item.label}</figcaption>}
     </figure>
   );
 }
