@@ -45,10 +45,10 @@ export const media = {
     },
     // Slide 6: the selected film. Use EITHER a YouTube id OR a local file.
     film: {
-      title: '', // e.g. 'InCUBE: an introduction'
+      title: 'InCUBE Mid-way project update',
       youtubeId: '46jReRgEuqE', // the part after watch?v=
-      start: 0, // seconds — excerpt start
-      end: 0, // seconds — excerpt end (0 = play to the end)
+      start: 0, // seconds; 0 = from the beginning
+      end: 0, // seconds; 0 = whole video (scrub freely with the player controls)
       file: '', // 'assets/incube/incube-film.mp4'
       externalUrl: 'https://youtu.be/46jReRgEuqE', // fallback link if the embed is blocked
     },

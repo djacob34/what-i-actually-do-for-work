@@ -140,7 +140,7 @@ export const slides = [
     ],
     notes: [
       'Answer to the phone question first: my first step is choosing a theme and outlining the story, and then getting the partners’ OK before anything is filmed. Compare with what people wrote.',
-      'Then play 60–90 seconds of the film (start/end in src/config/site.js → media.incube.film).',
+      'Then play the InCUBE Mid-way project update and scrub to the parts you want. Clicking into the video gives it the keyboard; click the slide outside the video to get the arrow keys back for the deck.',
       'The process: theme + story outline → partners sign off → interview questions with proposed talking points → schedule filming for interviews and b-roll → write the script and produce the voiceover with ElevenLabs (an AI voice platform) → gather all materials and footage into a video brief for the editor, with scene-by-scene selects and animation direction → the editor comes back with a storyboard for animation and styling → we collaborate for about two months, and I review every step → partners give feedback → apply it and publish.',
       'Rich is my video editor. Don’t say I shot all the footage or that Rich edited every InCUBE film. [Add exact credits for this film.]',
       'Film themes for InCUBE: an introduction, a technologies film, and one on international European collaboration. Each has its own job. [Confirm which are published.]',

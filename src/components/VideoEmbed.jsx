@@ -17,7 +17,7 @@ export function VideoEmbed({ film }) {
       </video>
     );
   } else if (film.youtubeId) {
-    const params = new URLSearchParams({ rel: '0', modestbranding: '1', playsinline: '1' });
+    const params = new URLSearchParams({ rel: '0', modestbranding: '1', playsinline: '1', controls: '1' });
     if (film.start) params.set('start', String(film.start));
     if (film.end) params.set('end', String(film.end));
     player = (
