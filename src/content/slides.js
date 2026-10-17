@@ -206,7 +206,7 @@ export const slides = [
       { name: 'Morbihan', line: 'A career-change pathway', img: 'assets/nessie/morbihan-board-a3.jpg' },
     ],
     regionsLead: 'What the four regions designed',
-    status: 'Workshop designs, not delivered placements',
+    status: 'Workshop game development',
     notes: [
       'Compare with what you wrote on your phone. Here’s what I designed: “Journey Through the E-Campus”, a 75-minute physical group game at the NESSIE General Assembly (Quiberon, Morbihan, May 2026). One of three 75-minute workshops I designed and facilitated there, each with four groups and 24 participants.',
       'Afterwards I wrote a summary per region from the boards, worksheets and voice notes, as input to traineeship reporting (T3.4).',
