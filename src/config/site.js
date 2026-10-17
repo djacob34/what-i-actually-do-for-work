@@ -94,7 +94,6 @@ export const media = {
 // Export each slide as an image into public/assets/portfolio/ and list them in
 // order. While the list is empty, one labelled placeholder slide is shown.
 export const portfolio = [
-  { src: 'assets/portfolio/01-presentation.jpg', title: 'Hi! I’m Dani' },
   { src: 'assets/portfolio/02-statement.jpg', title: 'Clarity out of complexity' },
   { src: 'assets/portfolio/03-web-design.jpg', title: 'Web Design' },
   { src: 'assets/portfolio/04-ux.jpg', title: 'UX Research & Strategy' },

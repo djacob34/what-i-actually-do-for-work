@@ -334,7 +334,7 @@ export const slides = [
     notes: [
       'Part 2: the other side of my work, creative direction. Different clients and different visual language, same core skill: understand the problem, set a direction, brief people, review, deliver.',
       'BX Studio was a former role: built and led a design team across strategy, UX, visual direction, review and delivery. Not my current role; no team-size or client claims without checking.',
-      'Next: eight of my creative-direction slides. Keep it brisk: roughly 20–30 seconds each.',
+      'Next: seven of my creative-direction slides. Keep it brisk: roughly 20–30 seconds each.',
     ],
   },
   // ── Portfolio insertion happens here (see src/config/site.js → portfolio) ──

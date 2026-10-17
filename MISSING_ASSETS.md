@@ -8,7 +8,7 @@ Put files in `public/assets/<folder>/` and set the path in `src/config/site.js`.
 - [x] NESSIE workshop photos: all four regional boards, Journey Logs and evaluation sheets (traineeship summaries)
 - [x] Hy2Market header image with logo (EHW overview)
 - [x] InCUBE demo-site photos: Groningen, Zaragoza, Trento
-- [x] Creative-direction slides (8), in Danielle's order
+- [x] Creative-direction slides (7), in Danielle's order
 - [x] Personal identity for the opening slide: portrait, mascots, palette and Instrument Serif (from the creative-direction slides)
 
 ## Essential

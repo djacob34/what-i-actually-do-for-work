@@ -101,5 +101,5 @@ They appear straight after the Part 2 divider, with no NEC frame, so they keep t
 8–10. NESSIE: intro · phone activity · what I actually did
 11–13. Hy2Market: intro · phone activity · what I actually did (booth + the day's three discussions)
 14. The everyday work: websites, social, newsletters, print, reports
-15. **Part 2 · Creative direction** divider → 16–23. eight creative-direction slides
-24. Freelance collaboration · 25. Close
+15. **Part 2 · Creative direction** divider → 16–22. seven creative-direction slides
+23. Freelance collaboration · 24. Close
