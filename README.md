@@ -97,8 +97,9 @@ They appear straight after the Part 2 divider, with no NEC frame, so they keep t
 1. Cover: title across both halves; science communication at NEC (left) and creative direction (right)
 2. **Part 1 · Science communication** divider
 3. How this works + QR · 4. Where NEC fits
-5–7. InCUBE: intro · phone activity · what I actually did
+5–7. InCUBE: intro (three demo-site cards) · phone activity · what I actually did (film + process)
 8–10. NESSIE: intro · phone activity · what I actually did
-11–13. Hy2Market: intro · phone activity · what I actually did
-14. **Part 2 · Creative direction** divider → 15–22. eight creative-direction slides
-23. Freelance collaboration · 24. Close
+11–13. Hy2Market: intro · phone activity · what I actually did (booth + the day's three discussions)
+14. The everyday work: websites, social, newsletters, print, reports
+15. **Part 2 · Creative direction** divider → 16–23. eight creative-direction slides
+24. Freelance collaboration · 25. Close

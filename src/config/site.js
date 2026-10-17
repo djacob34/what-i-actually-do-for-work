@@ -37,9 +37,12 @@ export const site = {
 
 export const media = {
   incube: {
-    // Slide 4: one strong demo-site / renovation image (before/after welcome).
-    demoImage: null, // 'assets/incube/incube-demo-site.jpg'
-    demoCaption: '',
+    // InCUBE intro: one photo per demo site (landscape works best).
+    sites: {
+      groningen: null, // 'assets/incube/site-groningen.jpg'
+      zaragoza: null, // 'assets/incube/site-zaragoza.jpg'
+      trento: null, // 'assets/incube/site-trento.jpg'
+    },
     // Slide 6: the selected film. Use EITHER a YouTube id OR a local file.
     film: {
       title: '', // e.g. 'InCUBE: an introduction'

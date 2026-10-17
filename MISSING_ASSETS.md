@@ -13,7 +13,7 @@ Put files in `public/assets/<folder>/` and set the path in `src/config/site.js`.
 ## Essential
 | # | Slide | What | File / config |
 | --- | --- | --- | --- |
-| 1 | 5 InCUBE intro | Demo-site / renovation photo, landscape (before/after welcome) | `assets/incube/incube-demo-site.jpg` → `media.incube.demoImage` |
+| 1 | 5 InCUBE intro | One landscape photo per demo site: Groningen, Zaragoza, Trento | `assets/incube/site-groningen.jpg`, `site-zaragoza.jpg`, `site-trento.jpg` → `media.incube.sites` |
 | 2 | 7 InCUBE reveal | ~~Film link~~ (set: youtu.be/46jReRgEuqE). Still needed: title and excerpt start/end | `media.incube.film` |
 | 4 | 13 Hy2Market reveal | Preferred booth render (one variation) | `assets/hy2market/hy2market-booth-render.jpg` → `media.hy2market.boothRender` |
 | 6 | 3, 6, 9, 12 | Public participant URL | `site.participantUrl` or `VITE_PARTICIPANT_URL` |

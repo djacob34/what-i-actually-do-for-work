@@ -116,32 +116,29 @@ function Nec({ s, n }) {
 
 // ── 4 ────────────────────────────────────────────────────────────────────────
 function IncubeIntro({ s, n }) {
-  const m = media.incube;
+  const photos = media.incube.sites || {};
   return (
     <SlideFrame number={n}>
       <Title s={s} />
-      <div className="two-col incube-intro">
-        <div className="col-text">
-          <p className="lead">{s.lead}</p>
-          <ul className="cities">
-            {s.cities.map((c) => (
-              <li key={c.city}>
-                <span className="pin" aria-hidden="true" />
-                <strong>{c.city}</strong> <span>{c.country}</span>
-              </li>
-            ))}
-          </ul>
-          <p className="callout">{s.challenge}</p>
-        </div>
-        <Figure
-          className="col-media frame"
-          src={m.demoImage}
-          alt="InCUBE demonstration site"
-          fit="cover"
-          caption={m.demoCaption}
-          placeholder={{ title: 'InCUBE demo-site photo', file: 'assets/incube/incube-demo-site.jpg' }}
-        />
-      </div>
+      <p className="incube-lead">{s.lead}</p>
+      <ul className="sites">
+        {s.sites.map((site) => (
+          <li key={site.id} className="site">
+            <Figure
+              src={photos[site.id]}
+              alt={`${site.city} demo site`}
+              fit="cover"
+              placeholder={{ title: `${site.city} photo`, file: `assets/incube/site-${site.id}.jpg` }}
+            />
+            <div className="site-text">
+              <span className="site-city">{site.city}</span>
+              <span className="site-building">{site.building}</span>
+              <span className="site-what">{site.what}</span>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <p className="callout incube-challenge">{s.challenge}</p>
     </SlideFrame>
   );
 }
@@ -305,10 +302,12 @@ function NessieIntro({ s, n }) {
               <li key={t}>{t}</li>
             ))}
           </ul>
-          <div className="twist">
-            <p className="twist-a">{s.twist.a}</p>
-            <p className="twist-b">{s.twist.b}</p>
-          </div>
+          <h2 className="mini-head">{s.regionsLead}</h2>
+          <ul className="lighthouses">
+            {s.regions.map((r) => (
+              <li key={r}>{r}</li>
+            ))}
+          </ul>
         </div>
         <div className="col-media nessie-visual">
           <Figure src={m.pipeline} alt="NESSIE skills pipeline: recruitment, short advanced courses, E-Campuses, traineeships, replication" />
@@ -411,40 +410,54 @@ function Hy2Reveal({ s, n }) {
             alt="Hy2Market booth concept render"
             placeholder={{ title: 'Booth concept render', file: 'assets/hy2market/hy2market-booth-render.jpg' }}
           />
+          {m.policyBoard && <Figure className="hr-policy frame" src={m.policyBoard} alt="Session 2 policy feedback board mockup" />}
           <p className="status-badge">{s.status}</p>
         </div>
         <div className="hr-right">
-          <ol className="elements">
-            {s.elements.map((e) => (
+          <h2 className="mini-head">{s.standLead}</h2>
+          <ul className="elements">
+            {s.stand.map((e) => (
               <li key={e.name}>
-                <span className={`el-tag el-tag-${e.tag.toLowerCase().replace(/\s+/g, '-')}`}>{e.tag}</span>
-                <strong>{e.name}</strong>
+                <strong>
+                  <span className="el-tag">{e.tag}</span>
+                  {e.name}
+                </strong>
                 <span>{e.why}</span>
               </li>
             ))}
+          </ul>
+          <h2 className="mini-head">{s.agendaLead}</h2>
+          <ol className="agenda">
+            {s.agenda.map((a) => (
+              <li key={a.time}>
+                <span className="agenda-time">{a.time}</span>
+                <div>
+                  <strong>{a.name}</strong>
+                  <span>{a.how}</span>
+                </div>
+              </li>
+            ))}
           </ol>
-          <div className="policy">
-            <span className="policy-label">{s.policy.label}</span>
-            {m.policyBoard ? (
-              <Figure className="policy-img" src={m.policyBoard} alt="Session 2 policy feedback board mockup" />
-            ) : (
-              <div className="policy-mock" aria-label="Diagram of the policy board: three horizontal sections">
-                {s.policy.sections.map((t) => (
-                  <div key={t} className="policy-row">
-                    <span>{t}</span>
-                    <i className="note note-g" />
-                    <i className="note note-r" />
-                    <i className="note note-g" />
-                  </div>
-                ))}
-              </div>
-            )}
-            <span className="policy-meta">
-              {s.policy.size} · {s.policy.how}
-            </span>
-          </div>
         </div>
       </div>
+    </SlideFrame>
+  );
+}
+
+// ── Everyday work ────────────────────────────────────────────────────────────
+function Everyday({ s, n }) {
+  return (
+    <SlideFrame number={n}>
+      <Title s={s} />
+      <dl className="everyday">
+        {s.items.map((it) => (
+          <div key={it.name} className="everyday-row">
+            <dt>{it.name}</dt>
+            <dd>{it.what}</dd>
+          </div>
+        ))}
+      </dl>
+      <p className="callout everyday-principle">{s.principle}</p>
     </SlideFrame>
   );
 }
@@ -602,6 +615,7 @@ const layouts = {
   nessieReveal: NessieReveal,
   hy2Intro: Hy2Intro,
   hy2Reveal: Hy2Reveal,
+  everyday: Everyday,
   divider: Divider,
   portfolio: Portfolio,
   freelance: Freelance,
