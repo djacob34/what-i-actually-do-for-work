@@ -448,9 +448,9 @@ function Hy2Reveal({ s, n }) {
 // On the build step, examples pop up one by one and fill the screen.
 // Slots: [left, top, width, tilt] on the 1280 × 720 canvas, in pop order.
 const POP_SLOTS = [
-  [40, 34, 390, -3], [460, 18, 250, 2], [760, 40, 420, 3], [1030, 270, 220, -4],
-  [70, 300, 380, 2], [470, 280, 200, -2], [690, 300, 270, -3], [250, 440, 190, 4],
-  [470, 470, 400, -2], [900, 430, 260, 3], [1070, 14, 190, 5], [28, 300, 150, -4],
+  [40, 34, 390, -3], [450, 30, 320, 2], [760, 40, 420, 3], [1030, 270, 220, -4],
+  [70, 300, 380, 2], [470, 280, 200, -2], [190, 440, 300, -3], [250, 440, 190, 4],
+  [470, 470, 400, -2], [700, 460, 320, 3], [1070, 14, 190, 5], [28, 300, 150, -4],
   [700, 250, 300, -1],
 ];
 
@@ -459,7 +459,7 @@ function PopItem({ item, slot, i }) {
   const url = asset(item.src);
   return (
     <figure
-      className={`pop pop-${item.type}`}
+      className={`pop pop-${item.type}${url ? ' pop-real' : ''}`}
       style={{ left: x, top: y, width: w, '--tilt': `${tilt}deg`, '--d': `${i * 170}ms` }}
     >
       {(item.type === 'web' || item.type === 'video') && (

@@ -251,9 +251,10 @@
 .pops { position: absolute; inset: 0; z-index: 5; background: rgba(255, 255, 255, .5); animation: popfade .3s both; }
 .pop { position: absolute; margin: 0; background: #fff; border: 1px solid #cfcfcf; box-shadow: 0 10px 28px rgba(0,0,0,.22); transform: rotate(var(--tilt)); animation: popin .5s cubic-bezier(.2,1.4,.4,1) both; animation-delay: var(--d); display: flex; flex-direction: column; }
 .pop-body { position: relative; overflow: hidden; background: #f3f3f3; }
+.pop-real { z-index: 2; } /* real examples sit above placeholders */
 .pop-web .pop-body { aspect-ratio: 16 / 10; }
 .pop-video .pop-body { aspect-ratio: 16 / 9; }
-.pop-social .pop-body { aspect-ratio: 4 / 5; }
+.pop-social .pop-body { aspect-ratio: 4 / 3; }
 .pop-doc .pop-body { aspect-ratio: 1 / 1.414; }
 .pop-banner .pop-body { aspect-ratio: 680 / 1600; }
 .pop-banner .pop-body img { object-fit: contain; }
