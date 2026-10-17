@@ -7,6 +7,8 @@ Put files in `public/assets/<folder>/` and set the path in `src/config/site.js`.
 - [x] NESSIE skills-pipeline graphic and Interreg/NESSIE lockup (NESSIE overview deck)
 - [x] NESSIE workshop photos: all four regional boards, Journey Logs and evaluation sheets (traineeship summaries)
 - [x] Hy2Market header image with logo (EHW overview)
+- [x] Creative-direction slides (8), in Danielle's order
+- [x] Personal identity for the opening slide: portrait, mascots, palette and Instrument Serif (from the creative-direction slides)
 
 ## Essential
 | # | Slide | What | File / config |
@@ -15,13 +17,11 @@ Put files in `public/assets/<folder>/` and set the path in `src/config/site.js`.
 | 2 | 6 InCUBE reveal | ~~Film link~~ (set: youtu.be/46jReRgEuqE). Still needed: title and excerpt start/end | `media.incube.film` |
 | 3 | 6 InCUBE reveal | One production-work example: script, storyboard or edit feedback | `assets/incube/incube-script-feedback.jpg` → `media.incube.workImage` |
 | 4 | 12 Hy2Market reveal | Preferred booth render (one variation) | `assets/hy2market/hy2market-booth-render.jpg` → `media.hy2market.boothRender` |
-| 5 | After 13 | Creative-direction slides as images, in order | `assets/portfolio/01.jpg …` → `portfolio` |
 | 6 | 2, 5, 8, 11 | Public participant URL | `site.participantUrl` or `VITE_PARTICIPANT_URL` |
 
 ## Optional
 | # | Slide | What | File / config |
 | --- | --- | --- | --- |
-| 7 | 1 Opening | Personal brand reference: logo, palette or a creative-work image | `assets/personal/brand-reference.jpg` → `site.personal` |
 | 8 | 12 Hy2Market reveal | Session 2 policy-board mockup (a drawn diagram shows meanwhile) | `assets/hy2market/hy2market-policy-board.png` → `media.hy2market.policyBoard` |
 | 9 | 9 NESSIE reveal | Photo of partners playing the game | `assets/nessie/nessie-workshop-in-action.jpg` → `media.nessie.facilitationPhoto` (needs a layout slot) |
 | 10 | 14 Freelance | Portraits of Danielle, Ihor, Rich, Bella | not wired; the text diagram works without them |

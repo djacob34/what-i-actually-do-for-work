@@ -23,7 +23,7 @@
 
   /* Type: the NEC deck uses Arial throughout */
   --font: Arial, 'Helvetica Neue', Helvetica, 'Liberation Sans', Arimo, sans-serif;
-  --font-personal: Georgia, 'Times New Roman', serif; /* provisional personal identity */
+  --font-personal: 'Instrument Serif', Georgia, 'Times New Roman', serif; /* from Danielle's creative-direction slides */
 
   /* Canvas is 1280×720; the PPT is 960×540 pt, so 1pt = 1.333px */
   --title-size: 43px;          /* 32pt bold */

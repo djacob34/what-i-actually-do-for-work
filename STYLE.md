@@ -25,7 +25,7 @@ Chapter accents, used only on kickers and small markers:
 ## Type
 - The theme names Calibri / Calibri Light, but **every text run in the slides is Arial**, so the web app uses Arial (fallbacks: Helvetica Neue, Helvetica, Liberation Sans, Arimo).
 - Titles: 32 pt bold, black, top-left (→ 43 px). Body: 18–20 pt regular (→ 24–27 px; kept at ≥ 21 px on slides except captions). Footer: 9 pt (→ 12 px).
-- Personal half of the opening slide uses Georgia italic as a **provisional** stand-in until Danielle's own brand references arrive.
+- Personal half of the opening slide follows Danielle's creative-direction slides: Instrument Serif (self-hosted via `@fontsource/instrument-serif`; the slides' headings are a close condensed serif, outlined in the PDFs so the exact face can't be read), `#F7F7F7` ground, pastel chips `#FFCADD` / `#FBE74E` / `#B9B8FF` / `#CEF3A7`, her portrait and two mascots cropped from the slides.
 
 ## Recurring artwork (all extracted from the deck)
 | File | What it is | Position (from the master/layouts) |
@@ -45,4 +45,4 @@ Chapter accents, used only on kickers and small markers:
 
 ## Substitutions
 - Calibri → Arial (matches what the slides actually use).
-- Personal identity: placeholder palette (`#1E1B2E` / `#F4EFE6` / NEC yellow) and Georgia, all editable in `site.personal`.
+- Personal identity: everything is editable in `site.personal`; Georgia is the fallback if the font fails to load.

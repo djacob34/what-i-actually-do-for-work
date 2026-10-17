@@ -27,15 +27,19 @@ function Opening({ s }) {
         <h1 className="opening-title">{s.title}</h1>
         <p className="opening-nec-sub">{s.nec}</p>
       </div>
-      <div className="opening-personal" style={{ background: p.background, color: p.ink, '--p-accent': p.accent }}>
-        {p.image && <img className="opening-personal-img" src={asset(p.image)} alt="" />}
+      <div className="opening-personal" style={{ background: p.background, color: p.ink }}>
+        {p.image && <img className="opening-portrait" src={asset(p.image)} alt={p.name} />}
+        {p.mascots?.pink && <img className="mascot mascot-a" src={asset(p.mascots.pink)} alt="" aria-hidden="true" />}
+        {p.mascots?.green && <img className="mascot mascot-b" src={asset(p.mascots.green)} alt="" aria-hidden="true" />}
         <div className="opening-personal-text">
           <p className="opening-name">{p.name}</p>
           <p className="opening-tagline">{p.tagline}</p>
         </div>
         <ul className="opening-mix">
-          {s.mix.map((m) => (
-            <li key={m}>{m}</li>
+          {s.mix.map((m, i) => (
+            <li key={m} style={{ background: p.chips?.[i % p.chips.length] }}>
+              {m}
+            </li>
           ))}
         </ul>
       </div>

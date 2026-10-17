@@ -19,15 +19,19 @@ export const site = {
   // Footer centre text. The NEC template shows www.newenergycoalition.org.
   footerSite: { pre: 'www.', bold: 'newenergycoalition', post: '.org' },
 
-  // Opening slide, personal half. Provisional until Danielle's own
-  // brand references arrive: swap the image, colours and tagline here.
+  // Opening slide, personal half, styled after Danielle's own creative-
+  // direction slides (grey ground, Instrument Serif, pastels, mascots).
   personal: {
     name: 'Danielle Jacobson',
-    tagline: 'Creative direction · communication · facilitation',
-    image: null, // e.g. 'assets/personal/brand-reference.jpg'
-    background: '#1E1B2E',
-    ink: '#F4EFE6',
-    accent: '#FFED00',
+    tagline: 'Creative director shaping design, teams, and ideas that move people.',
+    image: 'assets/personal/dani-portrait.jpg',
+    background: '#F7F7F7',
+    ink: '#000000',
+    chips: ['#FFCADD', '#FBE74E', '#B9B8FF', '#CEF3A7'], // pink, yellow, lilac, green
+    mascots: {
+      pink: 'assets/personal/mascot-pink.png',
+      green: 'assets/personal/mascot-green.png',
+    },
   },
 };
 
@@ -70,5 +74,12 @@ export const media = {
 // Export each slide as an image into public/assets/portfolio/ and list them in
 // order. While the list is empty, one labelled placeholder slide is shown.
 export const portfolio = [
-  // { src: 'assets/portfolio/01.jpg', title: 'Project name', credit: 'BX Studio — role', notes: '' },
+  { src: 'assets/portfolio/01-presentation.jpg', title: 'Hi! I’m Dani' },
+  { src: 'assets/portfolio/02-statement.jpg', title: 'Clarity out of complexity' },
+  { src: 'assets/portfolio/03-web-design.jpg', title: 'Web Design' },
+  { src: 'assets/portfolio/04-ux.jpg', title: 'UX Research & Strategy' },
+  { src: 'assets/portfolio/05-brand.jpg', title: 'Brand Strategy and Design' },
+  { src: 'assets/portfolio/06-ai-design.jpg', title: 'AI Design and Workflows' },
+  { src: 'assets/portfolio/07-graphic-motion.jpg', title: 'Graphic & Motion Design', notes: 'Includes the InCUBE spotlight graphic, a link back to the first chapter.' },
+  { src: 'assets/portfolio/08-leadership-operations.jpg', title: 'Design Leadership & Operations' },
 ];

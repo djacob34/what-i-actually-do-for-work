@@ -14,7 +14,7 @@ export const slides = [
     notes: [
       'Welcome. The short answer to “what do you do?” never quite works, so today you get the long one, with a few things to try on your phones.',
       'Four things meet in my work: understanding energy subject matter (BSc Environmental Engineering, MSc Energy & Environmental Science), communication, design and facilitation.',
-      'Left half: NEC visual identity. Right half: my own creative identity. The right half is a provisional treatment until my brand references are added (src/config/site.js → personal).',
+      'Left half: NEC visual identity. Right half: my own creative identity, taken from my creative-direction slides (portrait, Instrument Serif, pastels, mascots). Edit in src/config/site.js → personal.',
     ],
   },
   // ── 2 ───────────────────────────────────────────────────────────────────
@@ -282,7 +282,7 @@ export const slides = [
     notes: [
       'Same loop as everything you’ve just seen, in a different setting.',
       'BX Studio was a former role: built and led a design team across strategy, UX, visual direction, review and delivery. Not my current role; no team-size or client claims without checking.',
-      'Next: my existing creative-direction slides.',
+      'Next: eight of my creative-direction slides. Hi I’m Dani, my statement, then web, UX, brand, AI, graphic & motion, and leadership & operations. Keep it brisk: roughly 20–30 seconds each.',
     ],
   },
   // ── Portfolio insertion happens here (see src/config/site.js → portfolio) ──
