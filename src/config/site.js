@@ -66,22 +66,21 @@ export const media = {
     // Optional: a photo of partners actually playing.
     facilitationPhoto: null, // 'assets/nessie/nessie-workshop-in-action.jpg'
   },
-  // "Everyday work" slide: examples that pop up and fill the screen.
+  // "Everyday work" slide: examples that pop up and fill the screen, in this order.
   // type: web (browser frame), video (16:9 frame), social (post card), doc (portrait page) or banner (roll-up).
+  // slot: [left, top, width, tilt in degrees] on the 1280 × 720 slide.
   everyday: [
-    { type: 'web', label: 'hy2market.eu', src: null }, // 'assets/everyday/web-hy2market.jpg'
-    { type: 'social', label: 'Hy2Market on LinkedIn', src: 'assets/everyday/li-hy2market.jpg' },
-    { type: 'web', label: 'incubeproject.eu', src: 'assets/everyday/web-incube.jpg' },
-    { type: 'doc', label: 'NESSIE traineeship summary', src: 'assets/everyday/report-nessie-traineeship.jpg' },
-    { type: 'web', label: 'NESSIE on interregnorthsea.eu', src: 'assets/everyday/web-nessie.jpg' },
-    { type: 'doc', label: 'Hy2Market newsletter', src: 'assets/everyday/news-hy2market.jpg' },
-    { type: 'social', label: 'InCUBE on LinkedIn', src: 'assets/everyday/li-incube.jpg' },
-    { type: 'doc', label: 'Hydrogen Week flyer', src: null }, // 'assets/everyday/flyer-ehw.jpg'
-    { type: 'web', label: 'Hy2Market case studies', src: null }, // 'assets/everyday/web-case-studies.jpg'
-    { type: 'social', label: 'NESSIE on LinkedIn', src: 'assets/everyday/li-nessie.jpg' },
-    { type: 'doc', label: 'InCUBE newsletter', src: 'assets/everyday/news-incube.jpg' },
-    { type: 'banner', label: 'NESSIE × FREIIA roll-up banner', src: 'assets/everyday/banner.jpg' },
-    { type: 'video', label: 'InCUBE × ReLIFE webinar', src: 'assets/everyday/webinar-incube-relife.jpg' },
+    { type: 'web', label: 'Hy2Market case studies', src: null, slot: [40, 34, 390, -3] }, // 'assets/everyday/web-case-studies.jpg'
+    { type: 'social', label: 'Hy2Market on LinkedIn', src: 'assets/everyday/li-hy2market.jpg', slot: [450, 30, 320, 2] },
+    { type: 'web', label: 'incubeproject.eu', src: 'assets/everyday/web-incube.jpg', slot: [760, 40, 420, 3] },
+    { type: 'doc', label: 'NESSIE traineeship summary', src: 'assets/everyday/report-nessie-traineeship.jpg', slot: [1030, 270, 220, -4] },
+    { type: 'web', label: 'NESSIE on interregnorthsea.eu', src: 'assets/everyday/web-nessie.jpg', slot: [110, 150, 350, 2] },
+    { type: 'doc', label: 'Hy2Market newsletter', src: 'assets/everyday/news-hy2market.jpg', slot: [470, 280, 200, -2] },
+    { type: 'social', label: 'InCUBE on LinkedIn', src: 'assets/everyday/li-incube.jpg', slot: [190, 440, 300, -3] },
+    { type: 'video', label: 'InCUBE × ReLIFE webinar', src: 'assets/everyday/webinar-incube-relife.jpg', slot: [700, 250, 300, -1] },
+    { type: 'social', label: 'NESSIE on LinkedIn', src: 'assets/everyday/li-nessie.jpg', slot: [700, 460, 320, 3] },
+    { type: 'doc', label: 'InCUBE newsletter', src: 'assets/everyday/news-incube.jpg', slot: [1070, 14, 190, 5] },
+    { type: 'banner', label: 'NESSIE × FREIIA roll-up banner', src: 'assets/everyday/banner.jpg', slot: [28, 300, 150, -4] },
   ],
   hy2market: {
     header: 'assets/hy2market/hy2market-header.jpg',

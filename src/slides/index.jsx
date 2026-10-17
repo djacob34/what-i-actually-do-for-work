@@ -446,16 +446,9 @@ function Hy2Reveal({ s, n }) {
 
 // ── Everyday work ────────────────────────────────────────────────────────────
 // On the build step, examples pop up one by one and fill the screen.
-// Slots: [left, top, width, tilt] on the 1280 × 720 canvas, in pop order.
-const POP_SLOTS = [
-  [40, 34, 390, -3], [450, 30, 320, 2], [760, 40, 420, 3], [1030, 270, 220, -4],
-  [110, 150, 350, 2], [470, 280, 200, -2], [190, 440, 300, -3], [250, 440, 190, 4],
-  [470, 470, 400, -2], [700, 460, 320, 3], [1070, 14, 190, 5], [28, 300, 150, -4],
-  [700, 250, 300, -1],
-];
-
-function PopItem({ item, slot, i }) {
-  const [x, y, w, tilt] = slot;
+// Each example's position comes from its `slot` in media.everyday.
+function PopItem({ item, i }) {
+  const [x, y, w, tilt] = item.slot;
   const url = asset(item.src);
   return (
     <figure
@@ -494,8 +487,8 @@ function Everyday({ s, n, step }) {
       <p className="callout everyday-principle">{s.principle}</p>
       {step > 0 && (
         <div className="pops" aria-label="Examples of the everyday work">
-          {examples.slice(0, POP_SLOTS.length).map((item, i) => (
-            <PopItem key={item.label} item={item} slot={POP_SLOTS[i]} i={i} />
+          {examples.map((item, i) => (
+            <PopItem key={item.label} item={item} i={i} />
           ))}
         </div>
       )}

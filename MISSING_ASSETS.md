@@ -20,14 +20,12 @@ Put files in `public/assets/<folder>/` and set the path in `src/config/site.js`.
 
 ## Everyday-work pop-ups (slide 14)
 Screenshots or exports in `public/assets/everyday/`, then set each `src` in `media.everyday` (`src/config/site.js`). Any size; websites landscape, LinkedIn posts portrait, documents as a page image.
-- [ ] `web-hy2market.jpg`: hy2market.eu home or a news story
 - [ ] `web-case-studies.jpg`: the Hy2Market case-studies site
 - [x] `web-incube.jpg`: incubeproject.eu
 - [x] `web-nessie.jpg`: NESSIE on interregnorthsea.eu
 - [x] `li-hy2market.jpg`, `li-incube.jpg`, `li-nessie.jpg`: one LinkedIn post per project
 - [x] `news-hy2market.jpg`, `news-incube.jpg`: Hy2Market Q3 and InCUBE July 2026 issues
 - [x] `webinar-incube-relife.jpg`: frame from the InCUBE × ReLIFE recording
-- [ ] `flyer-ehw.jpg`: Hydrogen Week flyer or programme
 - [x] `banner.jpg`: NESSIE × FREIIA roll-up banner
 - [x] `report-nessie-traineeship.jpg`: page 1 of the Morbihan traineeship summary
 
