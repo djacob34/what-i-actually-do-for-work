@@ -1,0 +1,33 @@
+/* NEC design tokens, extracted from "Watts in Grass – Internal Kickoff" (16:9).
+   See STYLE.md for the source of each value. */
+:root {
+  /* Colour */
+  --nec-yellow: #ffed00;       /* logo + ring artwork */
+  --nec-yellow-theme: #fff100; /* theme accent1 */
+  --nec-yellow-soft: #fff59b;  /* theme accent2 */
+  --nec-black: #000000;
+  --nec-ink: #000000;          /* titles + body (tx1) */
+  --nec-grey-900: #262626;     /* theme dk2 */
+  --nec-grey-100: #eeeeee;     /* theme lt2 */
+  --nec-white: #ffffff;
+  --nec-orange: #f49a20;       /* accent4 */
+  --nec-green: #1fcc27;        /* accent5 */
+  --nec-purple: #362774;       /* accent6 */
+  --muted: #4a4a4a;
+
+  /* Chapter accents (used sparingly next to NEC yellow) */
+  --ch-incube: #006da2;        /* InCUBE brand dark blue */
+  --ch-nessie: #2f5496;        /* NESSIE brief "Blue Primary" */
+  --ch-nessie-soft: #dde9f6;
+  --ch-hy2market: #000000;
+
+  /* Type: the NEC deck uses Arial throughout */
+  --font: Arial, 'Helvetica Neue', Helvetica, 'Liberation Sans', Arimo, sans-serif;
+  --font-personal: Georgia, 'Times New Roman', serif; /* provisional personal identity */
+
+  /* Canvas is 1280×720; the PPT is 960×540 pt, so 1pt = 1.333px */
+  --title-size: 43px;          /* 32pt bold */
+  --body-size: 24px;           /* 18pt */
+  --footer-size: 12px;         /* 9pt */
+  --margin-x: 95px;            /* 7.45% left inset of title/content */
+}
