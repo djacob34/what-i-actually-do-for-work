@@ -71,9 +71,9 @@ export const media = {
   everyday: [
     { type: 'web', label: 'hy2market.eu', src: null }, // 'assets/everyday/web-hy2market.jpg'
     { type: 'social', label: 'Hy2Market on LinkedIn', src: 'assets/everyday/li-hy2market.jpg' },
-    { type: 'web', label: 'incubeproject.eu', src: null }, // 'assets/everyday/web-incube.jpg'
+    { type: 'web', label: 'incubeproject.eu', src: 'assets/everyday/web-incube.jpg' },
     { type: 'doc', label: 'NESSIE traineeship summary', src: 'assets/everyday/report-nessie-traineeship.jpg' },
-    { type: 'web', label: 'NESSIE on interregnorthsea.eu', src: null }, // 'assets/everyday/web-nessie.jpg'
+    { type: 'web', label: 'NESSIE on interregnorthsea.eu', src: 'assets/everyday/web-nessie.jpg' },
     { type: 'doc', label: 'Hy2Market newsletter', src: 'assets/everyday/news-hy2market.jpg' },
     { type: 'social', label: 'InCUBE on LinkedIn', src: 'assets/everyday/li-incube.jpg' },
     { type: 'doc', label: 'Hydrogen Week flyer', src: null }, // 'assets/everyday/flyer-ehw.jpg'
