@@ -25,7 +25,7 @@ Screenshots or exports in `public/assets/everyday/`, then set each `src` in `med
 - [ ] `web-incube.jpg`: incubeproject.eu
 - [ ] `web-nessie.jpg`: NESSIE on interregnorthsea.eu
 - [ ] `li-hy2market.jpg`, `li-incube.jpg`, `li-nessie.jpg`: one LinkedIn post or page per project
-- [ ] `news-hy2market.jpg`, `news-incube.jpg`: a newsletter issue each
+- [x] `news-hy2market.jpg`, `news-incube.jpg`: Hy2Market Q3 and InCUBE July 2026 issues
 - [ ] `webinar-incube-relife.jpg`: webinar promo or a frame from the recording
 - [ ] `flyer-ehw.jpg`: Hydrogen Week flyer or programme
 - [ ] `banner.jpg`: a roll-up banner

@@ -74,12 +74,12 @@ export const media = {
     { type: 'web', label: 'incubeproject.eu', src: null }, // 'assets/everyday/web-incube.jpg'
     { type: 'doc', label: 'NESSIE traineeship summary', src: 'assets/everyday/report-nessie-traineeship.jpg' },
     { type: 'web', label: 'NESSIE on interregnorthsea.eu', src: null }, // 'assets/everyday/web-nessie.jpg'
-    { type: 'doc', label: 'Hy2Market newsletter', src: null }, // 'assets/everyday/news-hy2market.jpg'
+    { type: 'doc', label: 'Hy2Market newsletter', src: 'assets/everyday/news-hy2market.jpg' },
     { type: 'social', label: 'InCUBE on LinkedIn', src: null }, // 'assets/everyday/li-incube.jpg'
     { type: 'doc', label: 'Hydrogen Week flyer', src: null }, // 'assets/everyday/flyer-ehw.jpg'
     { type: 'web', label: 'Hy2Market case studies', src: null }, // 'assets/everyday/web-case-studies.jpg'
     { type: 'social', label: 'NESSIE on LinkedIn', src: null }, // 'assets/everyday/li-nessie.jpg'
-    { type: 'doc', label: 'InCUBE newsletter', src: null }, // 'assets/everyday/news-incube.jpg'
+    { type: 'doc', label: 'InCUBE newsletter', src: 'assets/everyday/news-incube.jpg' },
     { type: 'doc', label: 'Roll-up banner', src: null }, // 'assets/everyday/banner.jpg'
     { type: 'web', label: 'InCUBE × ReLIFE webinar', src: null }, // 'assets/everyday/webinar-incube-relife.jpg'
   ],
