@@ -264,7 +264,7 @@ export const slides = [
       'Back wall: a Europe map of the ten Hy2Market regions, colour-coded by role, with six panels: five regional spotlights (Upper Austria, Northern Netherlands, Sicily, Asturias, Médio Tejo) plus a project introduction with a QR code to hy2market.eu. Each spotlight: what was done, what was learned, three key figures, partner logos.',
       'Layout variations tested: three frames each side; a smaller landscape map with spotlights around it; a larger central map with three above and three below. Not all of them are final instructions. I wanted more breathing room between the map and the networking board.',
       'Networking board (left of the map): categories such as project development, research and innovation, and industry. Visitors attach a card with what they offer, what they’re looking for, and contact details. Photos of it are allowed. There is no matching system and no counts.',
-      'Right wall: three vertical agenda banners (Mon–Wed) with perspex flyer holders. I design the stand programme and the flyers. [Confirm the banners are still in the current plan.]',
+      'Right wall: three vertical agenda banners (Mon–Wed) with perspex flyer holders. I design the stand programme and the flyers.',
       'Policy board, Session 2 (Policy Priorities): 65 × 90 cm, three horizontal sections, one per recommendation from the policy letter. Green notes for positives, red for negatives. Headings to come from the policy letter. Don’t invent them.',
       'The point: I plan how people contribute, as well as what they read.',
       'Also on the stand (not my design): Dirk’s H2 Journey marble run as the eye-catcher.',

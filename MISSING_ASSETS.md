@@ -28,5 +28,5 @@ Put files in `public/assets/<folder>/` and set the path in `src/config/site.js`.
 
 ## Facts to confirm (kept in speaker notes)
 - InCUBE: which film is shown, its publication status and production credits; which of the three film concepts are published.
-- Hy2Market: whether the right-wall agenda banners and flyer holders are still in the plan (the 17 Oct EHW overview doesn't mention them); policy-board headings come from Hans/the policy letter.
+- Hy2Market: policy-board headings come from Hans/the policy letter. (Agenda banners + flyer holders and the 5 + 1 map panels are confirmed.)
 - Footer date for the presentation day (`site.footerDate`).
