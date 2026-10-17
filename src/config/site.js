@@ -67,7 +67,7 @@ export const media = {
     facilitationPhoto: null, // 'assets/nessie/nessie-workshop-in-action.jpg'
   },
   // "Everyday work" slide: examples that pop up and fill the screen.
-  // type: web (browser frame), social (post card) or doc (portrait page).
+  // type: web (browser frame), social (post card), doc (portrait page) or banner (roll-up).
   everyday: [
     { type: 'web', label: 'hy2market.eu', src: null }, // 'assets/everyday/web-hy2market.jpg'
     { type: 'social', label: 'Hy2Market on LinkedIn', src: null }, // 'assets/everyday/li-hy2market.jpg'
@@ -80,7 +80,7 @@ export const media = {
     { type: 'web', label: 'Hy2Market case studies', src: null }, // 'assets/everyday/web-case-studies.jpg'
     { type: 'social', label: 'NESSIE on LinkedIn', src: null }, // 'assets/everyday/li-nessie.jpg'
     { type: 'doc', label: 'InCUBE newsletter', src: 'assets/everyday/news-incube.jpg' },
-    { type: 'doc', label: 'Roll-up banner', src: null }, // 'assets/everyday/banner.jpg'
+    { type: 'banner', label: 'NESSIE × FREIIA roll-up banner', src: 'assets/everyday/banner.jpg' },
     { type: 'web', label: 'InCUBE × ReLIFE webinar', src: null }, // 'assets/everyday/webinar-incube-relife.jpg'
   ],
   hy2market: {

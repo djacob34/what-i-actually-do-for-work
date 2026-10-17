@@ -28,7 +28,7 @@ Screenshots or exports in `public/assets/everyday/`, then set each `src` in `med
 - [x] `news-hy2market.jpg`, `news-incube.jpg`: Hy2Market Q3 and InCUBE July 2026 issues
 - [ ] `webinar-incube-relife.jpg`: webinar promo or a frame from the recording
 - [ ] `flyer-ehw.jpg`: Hydrogen Week flyer or programme
-- [ ] `banner.jpg`: a roll-up banner
+- [x] `banner.jpg`: NESSIE × FREIIA roll-up banner
 - [x] `report-nessie-traineeship.jpg`: page 1 of the Morbihan traineeship summary
 
 ## Optional

@@ -254,6 +254,8 @@
 .pop-web .pop-body { aspect-ratio: 16 / 10; }
 .pop-social .pop-body { aspect-ratio: 4 / 5; }
 .pop-doc .pop-body { aspect-ratio: 1 / 1.414; }
+.pop-banner .pop-body { aspect-ratio: 680 / 1600; }
+.pop-banner .pop-body img { object-fit: contain; }
 .pop-body img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .pop-missing { position: absolute; inset: 0; display: grid; place-items: center; text-align: center; padding: 10px; font-size: 16px; font-weight: 700; color: #666; border: 2px dashed #c4c4c4; background: repeating-linear-gradient(135deg, #fafafa 0 12px, #f0f0f0 12px 24px); }
 .pop-bar { display: flex; align-items: center; gap: 5px; padding: 6px 8px; background: #ececec; border-bottom: 1px solid #d6d6d6; }
