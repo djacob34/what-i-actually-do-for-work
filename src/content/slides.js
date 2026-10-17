@@ -190,7 +190,7 @@ export const slides = [
     chapter: 'nessie',
     kicker: 'NESSIE · 3 of 3',
     title: 'What I actually did',
-    sub: 'My answer: a traineeship-building game for the General Assembly in Morbihan',
+    sub: 'My answer: a traineeship-building game for the General Assembly',
     steps: [
       { min: '5', label: 'Meet your trainee, pick a host' },
       { min: '35', label: 'Build a journey: 3–4 stops' },
@@ -200,11 +200,12 @@ export const slides = [
     ],
     forced: 'Who is it for? Who hosts? What happens, where, for how long? How will anyone know it worked?',
     regions: [
-      { name: 'Ameland', line: 'Digital prep at school, then hands-on island visits', img: 'assets/nessie/ameland-board-a1.jpg' },
-      { name: 'Borkum', line: 'Online onboarding, then wind and heat-pump training', img: 'assets/nessie/borkum-board-a1.jpg' },
-      { name: 'Samsø', line: 'Energy governance and community trust', img: 'assets/nessie/samso-board-a2.jpg' },
+      { name: 'Ameland', line: 'School prep, then island site visits', img: 'assets/nessie/ameland-board-a1.jpg' },
+      { name: 'Borkum', line: 'Online start, then wind and heat-pump training', img: 'assets/nessie/borkum-board-a1.jpg' },
+      { name: 'Samsø', line: 'Governance and community trust', img: 'assets/nessie/samso-board-a2.jpg' },
       { name: 'Morbihan', line: 'A career-change pathway', img: 'assets/nessie/morbihan-board-a3.jpg' },
     ],
+    regionsLead: 'What the four regions designed',
     status: 'Workshop designs, not delivered placements',
     notes: [
       'Compare with what you wrote on your phone. Here’s what I designed: “Journey Through the E-Campus”, a 75-minute physical group game at the NESSIE General Assembly (Quiberon, Morbihan, May 2026). One of three 75-minute workshops I designed and facilitated there, each with four groups and 24 participants.',

@@ -345,18 +345,18 @@ function NessieReveal({ s, n }) {
           <p className="nr-forced">{s.forced}</p>
         </div>
       </div>
+      <div className="nr-regions-head">
+        <h2 className="mini-head">{s.regionsLead}</h2>
+        <p className="status-badge">{s.status}</p>
+      </div>
       <div className="nr-regions">
         {s.regions.map((r) => (
           <div className="region" key={r.name}>
-            <img src={asset(r.img)} alt={`${r.name} board`} />
-            <div>
-              <strong>{r.name}</strong>
-              <span>{r.line}</span>
-            </div>
+            <strong>{r.name}</strong>
+            <span>{r.line}</span>
           </div>
         ))}
       </div>
-      <p className="status-badge nr-status">{s.status}</p>
     </SlideFrame>
   );
 }
