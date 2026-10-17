@@ -12,7 +12,7 @@ Put files in `public/assets/<folder>/` and set the path in `src/config/site.js`.
 | # | Slide | What | File / config |
 | --- | --- | --- | --- |
 | 1 | 4 InCUBE intro | Demo-site / renovation photo, landscape (before/after welcome) | `assets/incube/incube-demo-site.jpg` → `media.incube.demoImage` |
-| 2 | 6 InCUBE reveal | The film: YouTube link or video file, plus excerpt start/end and title | `media.incube.film` |
+| 2 | 6 InCUBE reveal | ~~Film link~~ (set: youtu.be/46jReRgEuqE). Still needed: title and excerpt start/end | `media.incube.film` |
 | 3 | 6 InCUBE reveal | One production-work example: script, storyboard or edit feedback | `assets/incube/incube-script-feedback.jpg` → `media.incube.workImage` |
 | 4 | 12 Hy2Market reveal | Preferred booth render (one variation) | `assets/hy2market/hy2market-booth-render.jpg` → `media.hy2market.boothRender` |
 | 5 | After 13 | Creative-direction slides as images, in order | `assets/portfolio/01.jpg …` → `portfolio` |
