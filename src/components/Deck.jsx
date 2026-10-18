@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { slides as baseSlides } from '../content/slides.js';
+import { slides as mainSlides } from '../content/slides.js';
+import { slides as necSlides } from '../content/slides-nec.js';
+import { deckId, deckInfo } from '../lib/deck.js';
 import { portfolio } from '../config/site.js';
 import { renderSlide } from '../slides/index.jsx';
 import { activities } from '../content/activities.js';
@@ -10,6 +12,8 @@ const H = 720;
 
 // Expand the portfolio insertion point into one slide per supplied image, or a
 // single labelled placeholder while none are configured.
+const baseSlides = deckId === 'nec' ? necSlides : mainSlides;
+
 function buildSequence() {
   return baseSlides.flatMap((s) => {
     if (s.activity) return [{ ...s, title: activities[s.activity].label }];
@@ -71,7 +75,7 @@ export function Deck() {
   useEffect(() => {
     const target = `#${index + 1}`;
     if (window.location.hash !== target) history.replaceState(null, '', target);
-    document.title = `${index + 1}. ${sequence[index].title || 'Slide'} · What do I actually do for work?`;
+    document.title = `${index + 1}. ${sequence[index].title || 'Slide'} · ${deckInfo.title}`;
   }, [index]);
 
   useEffect(() => {

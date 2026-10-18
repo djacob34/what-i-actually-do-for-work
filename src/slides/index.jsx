@@ -638,6 +638,193 @@ function Close({ s, n }) {
   );
 }
 
+// ── NEC deck: opening ────────────────────────────────────────────────────────
+function NecOpening({ s }) {
+  const p = site.personal;
+  return (
+    <SlideFrame variant="bare" className="divider divider-nec nec-opening">
+      <img className="divider-ring" src={asset('assets/nec/nec-ring-white.svg')} alt="" aria-hidden="true" />
+      <img className="divider-logo" src={asset('assets/nec/nec-logo-black.png')} alt="New Energy Coalition" />
+      <img className="nec-plus" src={asset('assets/nec/nec-plus-grid.svg')} alt="" aria-hidden="true" />
+      <div className="divider-body">
+        <h1 className="divider-title">{s.title}</h1>
+        <p className="divider-sub">{s.sub}</p>
+      </div>
+      {p.image && <img className="nec-opening-portrait" src={asset(p.image)} alt="Dani" />}
+    </SlideFrame>
+  );
+}
+
+// ── NEC deck: journey timeline ───────────────────────────────────────────────
+function Timeline({ s, n }) {
+  return (
+    <SlideFrame number={n}>
+      <Title s={s} />
+      <div className="tl">
+        <div className="tl-line" aria-hidden="true" />
+        <ol className="tl-stops">
+          {s.stops.map((st, i) => (
+            <li key={st.place} className="tl-stop">
+              <span className="tl-dot">{i + 1}</span>
+              <strong>{st.place}</strong>
+              <span className="tl-what">{st.what}</span>
+              <span className="tl-detail">{st.detail}</span>
+            </li>
+          ))}
+        </ol>
+        <div className="tl-bottom">
+          <div className="tl-lanes">
+            <span className="tl-overlap">{s.overlap}</span>
+            {s.lanes.map((l, i) => (
+              <div key={l.label} className={`tl-lane tl-lane-${i + 1}`}>
+                <span className="tl-since">{l.since}</span>
+                <strong>{l.label}</strong>
+                <span className="tl-detail">{l.detail}</span>
+              </div>
+            ))}
+          </div>
+          <span className="tl-arrow" aria-hidden="true">→</span>
+          <div className="tl-end">
+            <span className="tl-dot tl-dot-end">4</span>
+            <strong>{s.end.place}</strong>
+            <span className="tl-detail">{s.end.detail}</span>
+          </div>
+        </div>
+      </div>
+    </SlideFrame>
+  );
+}
+
+// ── NEC deck: master's subjects ──────────────────────────────────────────────
+function Masters({ s, n }) {
+  return (
+    <SlideFrame number={n}>
+      <Title s={s} />
+      <p className="lead masters-lead">{s.lead}</p>
+      <div className="masters">
+        {s.groups.map((g) => (
+          <section key={g.name} className="masters-group">
+            <h2>{g.name}</h2>
+            <ul>
+              {g.items.map((it) => (
+                <li key={it}>{it}</li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </div>
+      <p className="callout masters-footer">{s.footer}</p>
+    </SlideFrame>
+  );
+}
+
+// ── NEC deck: research project ───────────────────────────────────────────────
+function Research({ s, n }) {
+  return (
+    <SlideFrame number={n}>
+      <header className="slide-head research-head">
+        <Kicker chapter="research">{s.kicker}</Kicker>
+        <h1 className="slide-title">{s.title}</h1>
+        {s.define && <p className="research-define">{s.define}</p>}
+      </header>
+      <div className="research">
+        {s.cols.map((c, i) => (
+          <section key={c.head} className="research-col">
+            <h2>
+              <span className="research-step">{i + 1}</span>
+              {c.head}
+            </h2>
+            {(c.img || c.placeholder) && (
+              <Figure
+                className="research-fig frame"
+                src={c.img}
+                alt={c.imgAlt}
+                fit={c.fit || 'cover'}
+                placeholder={{ title: c.placeholder, file: c.file }}
+              />
+            )}
+            {c.text && <p className="research-text">{c.text}</p>}
+            {c.points && (
+              <ul className="research-points">
+                {c.points.map((pt) => (
+                  <li key={pt}>{pt}</li>
+                ))}
+              </ul>
+            )}
+            {c.bridge && <p className="callout research-bridge">{c.bridge}</p>}
+          </section>
+        ))}
+      </div>
+    </SlideFrame>
+  );
+}
+
+// ── NEC deck: what is NEC ────────────────────────────────────────────────────
+function NecIntro({ s, n }) {
+  return (
+    <SlideFrame number={n}>
+      <Title s={s} />
+      <div className="necx">
+        <div className="necx-left">
+          <p className="lead necx-lead">{s.lead}</p>
+          <ul className="necx-work">
+            {s.work.map((w) => (
+              <li key={w.name}>
+                <strong>{w.name}</strong>
+                <span>{w.what}</span>
+              </li>
+            ))}
+          </ul>
+          <p className="necx-roots">{s.roots}</p>
+        </div>
+        <svg className="necx-tri" viewBox="0 0 400 370" role="img" aria-label="New Energy Coalition at the centre, connecting businesses, governments and knowledge institutions">
+          <polygon points="200,58 46,300 354,300" className="necx-edge" />
+          <line x1="200" y1="200" x2="200" y2="58" className="necx-spoke" />
+          <line x1="200" y1="200" x2="46" y2="300" className="necx-spoke" />
+          <line x1="200" y1="200" x2="354" y2="300" className="necx-spoke" />
+          <circle cx="200" cy="200" r="54" className="necx-centre" />
+          <text x="200" y="196" className="necx-centre-text">New Energy</text>
+          <text x="200" y="218" className="necx-centre-text">Coalition</text>
+          {[[200, 58], [46, 300], [354, 300]].map(([x, y], i) => (
+            <g key={s.nodes[i]}>
+              <circle cx={x} cy={y} r="13" className="necx-node" />
+              <text x={x} y={i === 0 ? y - 24 : y + 40} className="necx-node-text">
+                {s.nodes[i]}
+              </text>
+            </g>
+          ))}
+        </svg>
+      </div>
+    </SlideFrame>
+  );
+}
+
+// ── NEC deck: role ───────────────────────────────────────────────────────────
+function Role({ s, n }) {
+  return (
+    <SlideFrame number={n}>
+      <Title s={s} />
+      <p className="role-message">{s.message}</p>
+      <div className="verbs role-pillars">
+        {s.pillars.map((v) => (
+          <div className="verb" key={v.name}>
+            <span className="verb-word role-word">{v.name}</span>
+            <span className="verb-sub">{v.what}</span>
+          </div>
+        ))}
+      </div>
+      <ul className="role-projects">
+        {s.projects.map((p) => (
+          <li key={p.name}>
+            <Kicker chapter={p.chapter}>{p.name}</Kicker>
+            <span>{p.what}</span>
+          </li>
+        ))}
+      </ul>
+    </SlideFrame>
+  );
+}
+
 const layouts = {
   opening: Opening,
   how: How,
@@ -654,6 +841,12 @@ const layouts = {
   portfolio: Portfolio,
   freelance: Freelance,
   close: Close,
+  necOpening: NecOpening,
+  timeline: Timeline,
+  masters: Masters,
+  research: Research,
+  necIntro: NecIntro,
+  role: Role,
 };
 
 export function renderSlide(slide, number, live, step = 0) {

@@ -3,6 +3,9 @@ import { activities, chapters, isDone } from '../content/activities.js';
 import { loadAnswers, saveAnswers, clearAnswers } from '../lib/storage.js';
 import { asset } from '../lib/asset.js';
 import { sendAnswer } from '../lib/live.js';
+import { deckInfo } from '../lib/deck.js';
+
+const presenter = deckInfo.presenter;
 
 // Participant mode: a chapter menu, three short briefs and a results page.
 // Answers are saved only in this browser; nothing is sent anywhere.
@@ -59,11 +62,11 @@ export function Play() {
       <header className="play-bar">
         <button type="button" className="play-home" onClick={() => navigate('')} aria-label="Chapter menu">
           <img src={asset('assets/nec/nec-ring-yellow.svg')} alt="" aria-hidden="true" />
-          <span>What do I actually do?</span>
+          <span>{deckInfo.title}</span>
         </button>
       </header>
       <main className="play-main">{page}</main>
-      <footer className="play-foot">Answers show on Danielle’s screen without your name, and stay saved on this phone.</footer>
+      <footer className="play-foot">Answers show on {presenter}’s screen without your name, and stay saved on this phone.</footer>
     </div>
   );
 }
@@ -71,7 +74,7 @@ export function Play() {
 function Menu({ answers, navigate }) {
   return (
     <section className="play-menu">
-      <h1>Pick the chapter Danielle tells you to open</h1>
+      <h1>Pick the chapter {presenter} tells you to open</h1>
       <ol className="menu-list">
         {chapters.map((id, i) => {
           const a = activities[id];
@@ -202,7 +205,7 @@ function ResultCard({ id, answer }) {
           <p className="result-quote">{answer[f.id]}</p>
         </div>
       ))}
-      <span className="result-foot">Danielle shows her approach next.</span>
+      <span className="result-foot">{presenter} shows her approach next.</span>
     </div>
   );
 }

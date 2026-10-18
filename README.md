@@ -14,7 +14,9 @@ For editing with hot reload, run `npm run dev:server` in one terminal and `npm r
 
 | URL | What it shows |
 | --- | --- |
-| `?mode=present` (or no mode) | The projected deck |
+| `?mode=present` (or no mode) | The projected deck (original version) |
+| `?deck=nec` | **A Day in the Life of Dani**: the NEC-focused version (journey, master's, two research projects, NEC, then the three projects) |
+| `?mode=play&deck=nec` | Phone view for the NEC version (the QR code on that deck adds `deck=nec` automatically) |
 | `?mode=play` | Participant chapter menu (phones) |
 | `?mode=play&chapter=incube` / `nessie` / `hy2market` | One activity directly |
 | `?mode=play&chapter=results` | The participant's three answers |
@@ -54,6 +56,13 @@ Answers live in the server's memory, so a restart or redeploy clears them. Set a
 ### Railway (recommended: includes live answers)
 
 The repo includes `railway.json`: Railway runs `npm run build`, then `npm start` (`server.js` on Railway's `$PORT`). Generate a domain under the service's *Settings → Networking*. The QR code picks up that public address automatically, so no participant URL setting is needed. Set `VITE_PARTICIPANT_URL` only if friends should use a different address from the one the deck is opened on.
+
+## Two decks
+
+- **Original** (`src/content/slides.js`): "What do I actually do for work?", with the creative-direction section.
+- **NEC version** (`src/content/slides-nec.js`, open with `?deck=nec`): "A Day in the Life of Dani". Its project slides are copies, so editing one deck never changes the other. Layouts only it uses live at the bottom of `src/slides/index.jsx`, styles in `src/styles/nec-deck.css`, research figures in `public/assets/research/`.
+
+Both decks share the three phone activities and the live answer wall.
 
 ## Editing content
 

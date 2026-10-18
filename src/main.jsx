@@ -6,6 +6,7 @@ import './styles/tokens.css';
 import './styles/deck.css';
 import './styles/slides.css';
 import './styles/play.css';
+import './styles/nec-deck.css';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

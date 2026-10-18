@@ -1,4 +1,5 @@
 import { site } from '../config/site.js';
+import { deckId } from './deck.js';
 
 const LOCAL = /^(localhost|127\.|0\.0\.0\.0|\[::1\]|10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/;
 
@@ -15,6 +16,7 @@ export function participantUrl() {
   url.search = '';
   url.hash = '';
   url.searchParams.set('mode', 'play');
+  if (deckId !== 'main') url.searchParams.set('deck', deckId);
   return url.toString();
 }
 
