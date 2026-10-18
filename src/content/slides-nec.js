@@ -38,7 +38,6 @@ export const slides = [
       'September 2020: started as a marketing associate, then moved into project management, creative lead and design director.',
       'From 2021 I studied Energy and Environmental Sciences at the University of Groningen, and kept working in marketing and design alongside it. The two tracks ran in parallel, not one after the other.',
       'My master’s research internship at New Energy Coalition became the bridge into my work there.',
-      '[Optional: add personal photos for each stop. See the image list.]',
     ],
   },
   // ── Master's ────────────────────────────────────────────────────────────
@@ -49,14 +48,14 @@ export const slides = [
     lead: 'Energy and Environmental Sciences, University of Groningen: one degree that connects how the planet works, how we measure it, and how people decide.',
     groups: [
       { name: 'Environmental systems', items: ['Global change', 'Polar ecosystems', 'Marine ecosystem services'] },
-      { name: 'Scientific methods', items: ['Radiocarbon', 'Geology and nuclear'] },
+      { name: 'Scientific methods', items: ['Radiocarbon', 'Nuclear energy'] },
       { name: 'Human decisions', items: ['Sustainable marketing', 'Interdisciplinary perspectives on sustainability'] },
     ],
     footer: 'Plus two research projects: one in engineering, one in ecology.',
     notes: [
       'These are my descriptions of the courses, not their official titles.',
       'Environmental systems: global change, polar ecosystems, marine ecosystem services.',
-      'Scientific methods: radiocarbon (using carbon-14 to date and trace things), and a geology / nuclear course. [Confirm the course name.]',
+      'Scientific methods: radiocarbon (using carbon-14 to date and trace things), and nuclear energy.',
       'Human decisions: sustainable marketing, and interdisciplinary perspectives on sustainability.',
       'The point: the degree joined environmental systems, scientific methods and human decisions. That mix is exactly what science communication needs.',
     ],
@@ -99,7 +98,7 @@ export const slides = [
       'Findings (thesis §1 and ch. 7): highest power 5.36 W from the AR 3.5 blades at 15° pitch at 4.3 m/s. Higher wind speeds and smaller aspect ratios favoured smaller pitch angles. With the ridge, AR 6 produced about twice the power of the same blade without it. Against the standard twisted “reference” blades: the samara blades did better under a 10 Ω load but worse under 50 Ω, likely due to blade weight and inertia.',
       'Limitations: not every pitch angle was tested for every blade (time); the wind tunnel tops out at about 4.4 m/s; the airflow itself wasn’t visualised, so the vortex explanation needs PIV flow measurements to confirm. The AR 3 blade plateaued instead of peaking at high wind speeds (possibly stall or vortex shedding).',
       'Draft inconsistencies to check before citing: the summary and conclusion call AR 3 the “largest aspect ratio blade”, but AR 3 is the smallest aspect ratio (the widest blade). The top wind speed appears as both 4.3 and 4.4 m/s.',
-      'Sources: thesis p. 4 (Fig. 2.1, seed diagram from ref. [30]), p. 29 (Fig. 4.15, turbine photo), p. 23 (Fig. 4.9, blade set). [Thesis Presentation / Colloquium slides not yet supplied.]',
+      'Sources: thesis p. 4 (Fig. 2.1, seed diagram from ref. [30]), p. 29 (Fig. 4.15, turbine photo), p. 23 (Fig. 4.9, blade set).',
     ],
   },
   // ── Research 2 ──────────────────────────────────────────────────────────
@@ -131,7 +130,7 @@ export const slides = [
       },
     ],
     notes: [
-      '[Waiting for Kuttanad_Ecosystem_Restoration_D_Jacobson_Final.pdf and the matching presentation. Title, question, services, scenarios, methods, contribution, findings and limitations all come from those.]',
+      '[Waiting for Kuttanad_Ecosystem_Restoration_D_Jacobson_Final.pdf. Title, question, services, scenarios, methods, contribution, findings and limitations all come from it.]',
       'Keep modelled scenarios separate from measured outcomes and from restoration that was actually carried out.',
       'Transition: this research internship introduced me to New Energy Coalition.',
     ],
