@@ -701,18 +701,11 @@ function Masters({ s, n }) {
     <SlideFrame number={n}>
       <Title s={s} />
       <p className="lead masters-lead">{s.lead}</p>
-      <div className="masters">
-        {s.groups.map((g) => (
-          <section key={g.name} className="masters-group">
-            <h2>{g.name}</h2>
-            <ul>
-              {g.items.map((it) => (
-                <li key={it}>{it}</li>
-              ))}
-            </ul>
-          </section>
+      <ul className="masters-list">
+        {s.courses.map((c) => (
+          <li key={c}>{c}</li>
         ))}
-      </div>
+      </ul>
       <p className="callout masters-footer">{s.footer}</p>
     </SlideFrame>
   );

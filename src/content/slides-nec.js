@@ -46,10 +46,14 @@ export const slides = [
     layout: 'masters',
     title: 'What I studied in my master’s',
     lead: 'Energy and Environmental Sciences, University of Groningen: one degree that connects how the planet works, how we measure it, and how people decide.',
-    groups: [
-      { name: 'Environmental systems', items: ['Global change', 'Polar ecosystems', 'Marine ecosystem services'] },
-      { name: 'Scientific methods', items: ['Radiocarbon', 'Nuclear energy'] },
-      { name: 'Human decisions', items: ['Sustainable marketing', 'Interdisciplinary perspectives on sustainability'] },
+    courses: [
+      'Global change',
+      'Polar ecosystems',
+      'Marine ecosystem services',
+      'Radiocarbon',
+      'Nuclear energy',
+      'Sustainable marketing',
+      'Interdisciplinary perspectives on sustainability',
     ],
     footer: 'Plus two research projects: one in engineering, one in ecology.',
     notes: [
