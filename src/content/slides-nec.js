@@ -27,7 +27,7 @@ export const slides = [
     ],
     lanes: [
       { label: 'Marketing and design', since: 'From Sept 2020', detail: 'Marketing associate → project manager → creative lead → design director' },
-      { label: 'Master’s in Groningen', since: 'From 2021', detail: 'Energy and Environmental Sciences, University of Groningen' },
+      { label: 'Master’s in Groningen', since: 'From 2021', detail: 'Energy and Environmental Sciences, graduated cum laude' },
     ],
     overlap: 'Working and studying at the same time',
     end: { place: 'New Energy Coalition', detail: 'A research internship became my way in' },
@@ -36,7 +36,7 @@ export const slides = [
       'Johns Hopkins University: BSc in Environmental Engineering, minor in Mathematics, graduated with honors.',
       'Then three years travelling and working: miscellaneous jobs, including stewardess on superyachts, and teaching science, maths and English and tutoring in China.',
       'September 2020: started as a marketing associate, then moved into project management, creative lead and design director.',
-      'From 2021 I studied Energy and Environmental Sciences at the University of Groningen, and kept working in marketing and design alongside it. The two tracks ran in parallel, not one after the other.',
+      'From 2021 I studied Energy and Environmental Sciences at the University of Groningen, graduating cum laude, and kept working in marketing and design alongside it. The two tracks ran in parallel, not one after the other.',
       'My master’s research internship at New Energy Coalition became the bridge into my work there.',
     ],
   },
