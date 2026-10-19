@@ -44,6 +44,6 @@ Screenshots or exports in `public/assets/everyday/`, then set each `src` in `med
 
 ## NEC version (`?deck=nec`)
 - [x] Wind turbine thesis figures: samara seed diagram (thesis p. 4, Fig. 2.1, from source [30]), turbine in wind tunnel (p. 29, Fig. 4.15), blade set (p. 23, Fig. 4.9)
-- [ ] `Kuttanad_Ecosystem_Restoration_D_Jacobson_Final.pdf`: needed for the whole Research 2 slide
-- [ ] `assets/research/kuttanad-map.jpg`: location map (from the report)
-- [ ] `assets/research/kuttanad-figure.jpg`: one key research figure
+- [x] Kuttanad research slide: built from the Colloquium presentation (the report wasn't needed)
+- [x] `assets/research/kuttanad-map.jpg`: Colloquium slide 3 (Vijayan & Ray, 2015)
+- [x] `assets/research/kuttanad-model.jpg`: conceptual model pathway, Colloquium slide 15
