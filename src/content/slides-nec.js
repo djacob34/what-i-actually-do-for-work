@@ -40,30 +40,6 @@ export const slides = [
       'My master’s research internship at New Energy Coalition became the bridge into my work there.',
     ],
   },
-  // ── Master's ────────────────────────────────────────────────────────────
-  {
-    id: 'masters',
-    layout: 'masters',
-    title: 'What I studied in my master’s',
-    lead: 'The electives I followed in my master’s in Energy and Environmental Sciences at the University of Groningen:',
-    courses: [
-      'Global change',
-      'Polar ecosystems',
-      'Marine ecosystem services',
-      'Radiocarbon',
-      'Nuclear energy',
-      'Sustainable marketing',
-      'Interdisciplinary perspectives on sustainability',
-    ],
-    footer: 'Plus two research projects: one in engineering, one in ecology.',
-    notes: [
-      'These are the electives I chose, in my own words rather than their official titles. Together they connect how the planet works, how we measure it, and how people decide.',
-      'Environmental systems: global change, polar ecosystems, marine ecosystem services.',
-      'Scientific methods: radiocarbon (using carbon-14 to date and trace things), and nuclear energy.',
-      'Human decisions: sustainable marketing, and interdisciplinary perspectives on sustainability.',
-      'The point: the degree joined environmental systems, scientific methods and human decisions. That mix is exactly what science communication needs.',
-    ],
-  },
   // ── Research 1 ──────────────────────────────────────────────────────────
   {
     id: 'research-wind',

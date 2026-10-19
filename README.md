@@ -15,7 +15,7 @@ For editing with hot reload, run `npm run dev:server` in one terminal and `npm r
 | URL | What it shows |
 | --- | --- |
 | `?mode=present` (or no mode) | The projected deck (original version) |
-| `?deck=nec` | **A Day in the Life of Dani**: the NEC-focused version (journey, master's, two research projects, NEC, then the three projects) |
+| `?deck=nec` | **A Day in the Life of Dani**: the NEC-focused version (journey, two research projects, NEC, then the three projects) |
 | `?mode=play&deck=nec` | Phone view for the NEC version (the QR code on that deck adds `deck=nec` automatically) |
 | `?mode=play` | Participant chapter menu (phones) |
 | `?mode=play&chapter=incube` / `nessie` / `hy2market` | One activity directly |
