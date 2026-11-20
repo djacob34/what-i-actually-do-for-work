@@ -1,5 +1,6 @@
 import { Deck } from './components/Deck.jsx';
 import { Play } from './participant/Play.jsx';
+import { isExport } from './lib/deck.js';
 
 // ?mode=play → participant view on phones; anything else → the projected deck.
 export function App() {
@@ -9,5 +10,6 @@ export function App() {
     return <Play />;
   }
   document.documentElement.classList.add('is-present');
+  if (isExport) document.documentElement.classList.add('is-export');
   return <Deck />;
 }

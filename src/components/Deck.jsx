@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { slides as mainSlides } from '../content/slides.js';
 import { slides as necSlides } from '../content/slides-nec.js';
-import { deckId, deckInfo } from '../lib/deck.js';
+import { deckId, deckInfo, isExport } from '../lib/deck.js';
 import { portfolio } from '../config/site.js';
 import { renderSlide } from '../slides/index.jsx';
 import { activities } from '../content/activities.js';
@@ -48,7 +48,7 @@ export function Deck() {
   const [index, setIndex] = useState(readHash);
   const [notesOpen, setNotesOpen] = useState(false);
   const [pickerOpen, setPickerOpen] = useState(false);
-  const [chromeHidden, setChromeHidden] = useState(false);
+  const [chromeHidden, setChromeHidden] = useState(isExport);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [scale, setScale] = useState(1);
   const stageRef = useRef(null);

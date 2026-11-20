@@ -3,6 +3,9 @@
 // A host page can also preselect it with window.__DECK__ = 'nec'.
 const param = window.__DECK__ || new URLSearchParams(window.location.search).get('deck');
 
+// ?export=1: static rendering for PDF export (no controls, QR or live video).
+export const isExport = new URLSearchParams(window.location.search).get('export') === '1';
+
 export const deckId = param === 'nec' ? 'nec' : 'main';
 
 export const deckInfo = {

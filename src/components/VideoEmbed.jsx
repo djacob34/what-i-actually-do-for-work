@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { asset } from '../lib/asset.js';
 import { Placeholder } from './Figure.jsx';
+import { isExport } from '../lib/deck.js';
 
 // Embeds the configured film (YouTube id or local file) with a fallback link.
 export function VideoEmbed({ film }) {
@@ -9,7 +10,15 @@ export function VideoEmbed({ film }) {
     film.externalUrl || (film.youtubeId ? `https://www.youtube.com/watch?v=${film.youtubeId}&t=${film.start || 0}s` : '');
 
   let player = null;
-  if (film.file && !failed) {
+  if (isExport) {
+    player = (
+      <div className="video-still">
+        <span className="video-still-play" aria-hidden="true">▶</span>
+        <strong>{film.title || 'Film'}</strong>
+        {external && <span>{external.replace(/^https?:\/\//, '')}</span>}
+      </div>
+    );
+  } else if (film.file && !failed) {
     const range = film.start || film.end ? `#t=${film.start || 0}${film.end ? ',' + film.end : ''}` : '';
     player = (
       <video controls preload="metadata" src={asset(film.file) + range} onError={() => setFailed(true)}>

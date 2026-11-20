@@ -44,3 +44,12 @@ html.is-present, html.is-present body { overflow: hidden; background: #141414; }
 .notes ul { padding-left: 18px; margin: 0; }
 .notes li { margin-bottom: 10px; }
 .notes-next { color: #999; font-size: 14px; border-top: 1px solid #333; padding-top: 10px; }
+
+/* PDF export (?export=1) */
+html.is-export .controls, html.is-export .controls-reveal { display: none !important; }
+html.is-export .stage { margin: 0; }
+html.is-export .activity-join, html.is-export .how-join, html.is-export .live-count, html.is-export .close-results { visibility: hidden; }
+.video-still { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; background: #111; color: #fff; font-size: 18px; }
+.video-still strong { font-size: 24px; }
+.video-still span:last-child { color: var(--nec-yellow); }
+.video-still-play { width: 74px; height: 74px; border-radius: 50%; background: var(--nec-yellow); color: #000; display: grid; place-items: center; font-size: 30px; padding-left: 6px; }
